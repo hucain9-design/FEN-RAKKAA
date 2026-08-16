@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-282fcde0-947c-4eb1-ba59-6e89f4523b9b/styles.css">
+<style>
+  :root{
+    --pad-x:110px; --pad-y:84px;
+    --t-kicker:22px; --t-title:62px; --t-sub:34px; --t-body:28px; --t-small:22px; --t-mega:150px;
+  }
+  .slide{ position:absolute; inset:0; background:var(--color-bg); color:var(--color-text);
+    font-family:var(--font-body); display:flex; flex-direction:column; padding:var(--pad-y) var(--pad-x); box-sizing:border-box; }
+  .kick{ font-family:var(--font-heading); font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+    font-size:var(--t-kicker); color:var(--color-accent); }
+  .stitle{ font-family:var(--font-heading); font-weight:800; font-size:var(--t-title); line-height:1.02; letter-spacing:-.01em; margin:0; text-wrap:balance; }
+  .ssub{ font-size:var(--t-sub); color:var(--color-neutral-700); margin:0; max-width:1400px; }
+  .foot{ position:absolute; left:var(--pad-x); right:var(--pad-x); bottom:44px; display:flex; justify-content:space-between;
+    align-items:center; font-family:var(--font-heading); font-weight:700; font-size:var(--t-small); color:var(--color-neutral-600);
+    border-top:2px solid var(--color-divider); padding-top:16px; }
+  .rule{ height:2px; background:var(--color-text); width:100%; }
+  .mega{ font-family:var(--font-heading); font-weight:800; font-size:var(--t-mega); line-height:.9; letter-spacing:-.03em; }
+  .statlab{ font-family:var(--font-heading); font-weight:800; font-size:var(--t-body); }
+  .statbody{ font-size:var(--t-small); color:var(--color-neutral-700); line-height:1.45; }
+</style>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+  <section data-label="Cover" data-speaker-notes="Good morning. I am asking this panel to approve Project Fen Rakkaa: a twelve month, MVR 4.5 million project to close the gap between the currency MWSC earns in and the currency it spends in. Five minutes: the problem, the evidence, the options, the value, the risks, then the ask.">
+    <div class="slide" style="justify-content:space-between;background:var(--color-accent);color:var(--color-bg)">
+      <div style="font-family:var(--font-heading);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:var(--t-kicker)">MWSC · Strategic Project Development Proposal</div>
+      <div>
+        <div style="height:2px;background:var(--color-bg);width:100%;margin-bottom:40px"></div>
+        <h1 style="font-family:var(--font-heading);font-weight:800;font-size:130px;line-height:.92;letter-spacing:-.02em;margin:0">PROJECT<br>FEN RAKKAA</h1>
+        <p style="font-size:38px;margin:28px 0 0;max-width:1300px">Closing the gap between rufiyaa income and dollar spending.</p>
+        <p style="font-size:28px;margin:20px 0 0;font-weight:700">Decision requested: approve a gated MVR 4.5m project against exposure in the tens of millions.</p>
+      </div>
+      <div style="font-family:var(--font-heading);font-weight:700;font-size:var(--t-small);display:flex;gap:28px">
+        <span>Hussain Shaany · S2610358</span><span>PTMT9002 Strategic Project Development</span><span>15 August 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="Problem" data-speaker-notes="The plan itself names this the top corporate challenge. The parallel rate hit 22.25 on 11 August, a 44 percent premium over the peg. Reserves halved in four months to 1.4 months of import cover. MWSC earns almost nothing in dollars but buys membranes, pumps, chemicals and pipes in dollars. The trend line shows this is structural, not a spike.">
+    <div class="slide">
+      <div class="kick">01 · The problem</div>
+      <h2 class="stitle" style="margin-top:14px;max-width:1500px">MWSC earns in rufiyaa and spends in dollars</h2>
+      <p class="ssub" style="margin-top:16px">Business Plan 2026 ranks the USD exchange rate crisis as the top corporate challenge (MWSC, 2025a).</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--color-divider);margin-top:56px;flex:1;align-content:start">
+        <div style="background:var(--color-bg);padding:36px 30px 30px">
+          <div class="mega" style="color:var(--color-accent)">22.25</div>
+          <div class="statlab" style="margin-top:14px">MVR per USD · parallel rate</div>
+          <p class="statbody" style="margin-top:8px">11 Aug 2026. Official peg 15.42. A 44% premium (Adhadhu, 2026; MMA, 2026).</p>
+        </div>
+        <div style="background:var(--color-bg);padding:36px 30px 30px">
+          <div class="mega">$638m</div>
+          <div class="statlab" style="margin-top:14px">Gross reserves · Jul 2026</div>
+          <p class="statbody" style="margin-top:8px">Fell from $1.33bn (Mar) to $718m (Apr, 1.4 months' cover) after the $500m sukuk, still falling (MMA, 2026).</p>
+        </div>
+        <div style="background:var(--color-bg);padding:36px 30px 30px">
+          <div class="mega">~0%</div>
+          <div class="statlab" style="margin-top:14px">of MWSC revenue in USD</div>
+          <p class="statbody" style="margin-top:8px">Membranes, pumps, chemicals, pipes and meters are all bought in dollars (MWSC/AGO, 2025).</p>
+        </div>
+      </div>
+      <p style="font-size:var(--t-small);color:var(--color-neutral-700);max-width:1500px;margin:0 0 40px">Structural, not temporary: the premium has widened steadily for two years. Every dollar of imports now costs 44% more rufiyaa than the budget rate assumes.</p>
+      <div class="foot"><span>Project Fen Rakkaa</span><span>02</span></div>
+    </div>
+  </section>
+
+  <section data-label="Evidence" data-speaker-notes="The cost is visible in the accounts. Revenue fell 13 percent in 2025, profit fell by about a third, and the 2026 budget gap widened from 2 to 11 percent between quarters. Exposure is estimated at 40 to 70 million rufiyaa a year; I adopt 55 as a conservative planning estimate and I am explicit that it is an assumption. That is why the exposure register is the first deliverable. The diagnosis found four internal root causes: no dollar revenue, no treasury controls, no FX clauses, no owner. All four are within MWSC's control.">
+    <div class="slide">
+      <div class="kick">02 · The evidence</div>
+      <h2 class="stitle" style="margin-top:14px;max-width:1500px">The mismatch is already costing MWSC</h2>
+      <p class="ssub" style="margin-top:16px">Audited FY2024 and quarterly disclosures (MWSC/AGO, 2025; MWSC, 2026).</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:48px;flex:1">
+        <div style="display:flex;flex-direction:column;gap:2px;background:var(--color-divider)">
+          <div style="background:var(--color-bg);padding:22px 8px 22px 0"><span class="statlab">FY2025 revenue down 13%</span><div class="statbody">MVR 1.37bn — only 62% of the annual goal.</div></div>
+          <div style="background:var(--color-bg);padding:22px 8px 22px 0"><span class="statlab">FY2025 profit down ~⅓</span><div class="statbody">Profit after tax MVR 146m.</div></div>
+          <div style="background:var(--color-bg);padding:22px 8px 22px 0"><span class="statlab">H1 2026 gap 6.4% under budget</span><div class="statbody">Widening from 1.9% (Q1) to 10.9% (Q2).</div></div>
+          <div style="background:var(--color-bg);padding:22px 8px 22px 0"><span class="statlab">Cash MVR 50.2m vs receivables MVR 877.8m</span><div class="statbody">MVR 192.1m impairment flagged as a Key Audit Matter.</div></div>
+        </div>
+        <div style="background:var(--color-text);color:var(--color-bg);padding:40px;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:var(--t-kicker);letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent)">Unmanaged FX exposure</div>
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:96px;line-height:1;margin-top:16px">40–70m</div>
+            <div style="font-size:var(--t-body);margin-top:8px">MVR per year. Planning estimate A2: <strong>55m adopted</strong>.</div>
+            <p style="font-size:var(--t-small);color:var(--color-neutral-300);margin-top:16px;line-height:1.5">From 2024 operating costs of MVR 935.3m at a 20–25% dollar-linked share, at realised rates. The exposure register replaces the estimate with measured values — it is deliverable one.</p>
+          </div>
+          <div style="font-size:var(--t-small);line-height:1.6">Four internal root causes, all actionable:<br>1 · No dollar revenue&nbsp;&nbsp; 2 · No treasury controls<br>3 · No FX clauses in contracts&nbsp;&nbsp; 4 · No single owner of FX risk</div>
+        </div>
+      </div>
+      <div class="foot"><span>Project Fen Rakkaa</span><span>03</span></div>
+    </div>
+  </section>
+
+  <section data-label="Options" data-speaker-notes="Three genuinely distinct options. A is the baseline: free today, expensive over time. B fixes treasury for 1.5 million but leaves revenue entirely in rufiyaa. C is the integrated project and the only option that addresses all four root causes. The weightings were set before scoring. I stress tested them: even doubling the cost weight and cutting strategic fit, C still ranks first. And B is not discarded; it is the priced fallback if Gate 2 shows benefits below threshold.">
+    <div class="slide">
+      <div class="kick">03 · The options</div>
+      <h2 class="stitle" style="margin-top:14px;max-width:1500px">Three distinct options, appraised before scoring</h2>
+      <p class="ssub" style="margin-top:16px">Criteria and weightings fixed in advance; scores 1–5 (workings in the proposal, Section 4.1).</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--color-divider);margin-top:48px;flex:1">
+        <div style="background:var(--color-bg);padding:36px 30px;display:flex;flex-direction:column">
+          <div class="statlab" style="font-size:30px">A · Do Nothing</div>
+          <div style="font-size:var(--t-small);color:var(--color-neutral-600);font-weight:700">Baseline</div>
+          <ul style="font-size:var(--t-small);line-height:1.5;margin:22px 0 0;padding-left:20px;flex:1"><li>No cost, no disruption</li><li>Leaves MVR 40–70m p.a. exposed</li><li>Fails every strategic objective</li></ul>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:56px;margin-top:20px">2.45</div>
+          <div style="font-size:var(--t-small);color:var(--color-neutral-600)">Weighted score</div>
+        </div>
+        <div style="background:var(--color-bg);padding:36px 30px;display:flex;flex-direction:column">
+          <div class="statlab" style="font-size:30px">B · Treasury Fix</div>
+          <div style="font-size:var(--t-small);color:var(--color-neutral-600);font-weight:700">Do-minimum</div>
+          <ul style="font-size:var(--t-small);line-height:1.5;margin:22px 0 0;padding-left:20px;flex:1"><li>MVR 1.5m, quick to implement</li><li>Planning rate, buffer, bulk orders</li><li>Revenue mismatch stays unresolved</li></ul>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:56px;margin-top:20px">3.25</div>
+          <div style="font-size:var(--t-small);color:var(--color-neutral-600)">Weighted score</div>
+        </div>
+        <div style="background:var(--color-accent);color:var(--color-bg);padding:36px 30px;display:flex;flex-direction:column">
+          <div class="statlab" style="font-size:30px">C · Fen Rakkaa</div>
+          <div style="font-size:var(--t-small);font-weight:700;opacity:.85">Integrated · Recommended</div>
+          <ul style="font-size:var(--t-small);line-height:1.5;margin:22px 0 0;padding-left:20px;flex:1"><li>MVR 4.5m, 12 months, 2 gates</li><li>Six workstreams: revenue, treasury, procurement, contracts, governance, energy</li><li>Only option resolving every root cause</li></ul>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:56px;margin-top:20px">4.30</div>
+          <div style="font-size:var(--t-small);opacity:.85">Weighted score</div>
+        </div>
+      </div>
+      <p style="font-size:var(--t-small);color:var(--color-neutral-700);max-width:1500px;margin:0 0 40px">Sensitivity: doubling the cost weight to 30% and cutting strategic fit to 5% still ranks C first (4.00 vs 3.40 and 3.05). Option B is retained as the priced fallback if Gate 2 benefits fall short.</p>
+      <div class="foot"><span>Project Fen Rakkaa</span><span>04</span></div>
+    </div>
+  </section>
+
+  <section data-label="Value" data-speaker-notes="The financial case. NPV of 33.4 million over three years against 8.1 million total cost, benefit cost ratio 5.8, payback inside Year 1. The number I want the panel to hold is 17 percent: the project breaks even if only 17 percent of the modelled benefits appear. The chart shows NPV stays positive from around 20 percent realization even if running costs overrun by two thirds. I am open about the limitation: benefits rest on an assumed dollar-linked cost share, which is why the exposure register is deliverable one and why I quote no IRR.">
+    <div class="slide">
+      <div class="kick">04 · The value</div>
+      <h2 class="stitle" style="margin-top:14px;max-width:1500px">Pays back in Year 1, robust to failure</h2>
+      <p class="ssub" style="margin-top:16px">Three-year DCF at 12%; benefits ramp 15% / 35% / 45% of the MVR 55m exposure (Appendix A).</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--color-divider);margin-top:52px">
+        <div style="background:var(--color-bg);padding:32px 26px"><div class="mega" style="font-size:96px">33.4m</div><div class="statlab" style="margin-top:10px">3-year NPV (MVR)</div></div>
+        <div style="background:var(--color-bg);padding:32px 26px"><div class="mega" style="font-size:96px">5.8</div><div class="statlab" style="margin-top:10px">Benefit–cost ratio</div></div>
+        <div style="background:var(--color-bg);padding:32px 26px"><div class="mega" style="font-size:96px">Yr 1</div><div class="statlab" style="margin-top:10px">Payback, net cash positive</div></div>
+        <div style="background:var(--color-accent);color:var(--color-bg);padding:32px 26px"><div style="font-family:var(--font-heading);font-weight:800;font-size:96px;line-height:.9">17%</div><div class="statlab" style="margin-top:10px">Realization needed to break even</div></div>
+      </div>
+      <div style="margin-top:44px;flex:1">
+        <div class="statlab" style="font-size:30px">Why the case is honest</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:44px;margin-top:22px">
+          <div><div style="font-family:var(--font-heading);font-weight:800;font-size:var(--t-body);color:var(--color-accent-700)">Assumption, not fact</div><p class="statbody" style="margin-top:8px">Benefits rest on the assumed dollar-linked cost share, not published segment data.</p></div>
+          <div><div style="font-family:var(--font-heading);font-weight:800;font-size:var(--t-body);color:var(--color-accent-700)">Control</div><p class="statbody" style="margin-top:8px">The exposure register replaces the estimate with measured values; positive at 40% realization even with costs over by two-thirds.</p></div>
+          <div><div style="font-family:var(--font-heading);font-weight:800;font-size:var(--t-body);color:var(--color-accent-700)">No IRR quoted</div><p class="statbody" style="margin-top:8px">At this cost scale it would imply false precision.</p></div>
+        </div>
+      </div>
+      <div class="foot"><span>Project Fen Rakkaa</span><span>05</span></div>
+    </div>
+  </section>
+
+  <section data-label="Delivery" data-speaker-notes="Delivery is deliberately gated because the environment is complex and unpredictable; the design is probe, learn, adjust. Gate 1 at month 6 tests whether governance is actually live. Gate 2 at month 12 tests whether at least 35 percent of projected benefits are real; if not, we fall back to Option B at a known price. Every outcome has a named owner: business development owns USD billing, procurement owns the spend reduction, the CFO owns the buffer, legal owns the clause compliance.">
+    <div class="slide">
+      <div class="kick">05 · Delivery</div>
+      <h2 class="stitle" style="margin-top:14px;max-width:1600px">Twelve months, two gates, a priced fallback</h2>
+      <p class="ssub" style="margin-top:16px">The logframe assigns every result an owner; Gate 2 failure triggers de-scope to Option B.</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--color-divider);margin-top:52px">
+        <div style="background:var(--color-bg);padding:30px 24px"><div style="font-size:var(--t-small);color:var(--color-accent);font-weight:800">Q4 2026 · Mobilise</div><p class="statbody" style="margin-top:10px">Steering committee, champions, USD account.</p></div>
+        <div style="background:var(--color-bg);padding:30px 24px"><div style="font-size:var(--t-small);color:var(--color-accent);font-weight:800">Q1 2027 · Build</div><p class="statbody" style="margin-top:10px">Exposure register, dashboard, clause library.</p></div>
+        <div style="background:var(--color-bg);padding:30px 24px"><div style="font-size:var(--t-small);color:var(--color-accent);font-weight:800">Q2 2027 · Scale</div><p class="statbody" style="margin-top:10px">Resort outreach, USD billing, bulk import plan.</p></div>
+        <div style="background:var(--color-bg);padding:30px 24px"><div style="font-size:var(--t-small);color:var(--color-accent);font-weight:800">Q3 2027 · Embed</div><p class="statbody" style="margin-top:10px">Buffer policy live, divisional KPIs, audit-verified benefits.</p></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--color-divider);margin-top:2px">
+        <div style="background:var(--color-text);color:var(--color-bg);padding:26px 24px"><strong style="font-family:var(--font-heading);font-size:var(--t-body)">Gate 1 · Month 6</strong><div style="font-size:var(--t-small);margin-top:6px">Governance live? Register, dashboard, USD account operational.</div></div>
+        <div style="background:var(--color-accent);color:var(--color-bg);padding:26px 24px"><strong style="font-family:var(--font-heading);font-size:var(--t-body)">Gate 2 · Month 12</strong><div style="font-size:var(--t-small);margin-top:6px">Benefit realization ≥ 35%? If not, de-scope to Option B at known cost.</div></div>
+      </div>
+      <p style="font-size:var(--t-small);color:var(--color-neutral-700);margin:26px 0 40px;line-height:1.55;max-width:1650px">Outcome targets by owner: USD billing ≥ 50% of resort clients &amp; ≥ 20% of project revenue by Q2 2027 (GM Business Development) · USD procurement spend down 10–15% by Sep 2027 (Procurement) · USD reserve ≥ 20% of the MVR 30m target by Mar 2027 (CFO) · 100% of new FX contracts legally reviewed from Q4 2026 (Legal).</p>
+      <div class="foot"><span>Project Fen Rakkaa</span><span>06</span></div>
+    </div>
+  </section>
+
+  <section data-label="Risks" data-speaker-notes="Four principal risks, each stated as cause, event, effect, each with an owner, a trigger and a priced response. The two 15s are macro events: a peg adjustment and dollar rationing. The project cannot prevent them, and that is precisely the argument for it: bands, buffers and fallbacks instead of assumed stability. Residual scores assume the response work is done. Anything scoring 12 or more escalates to EXCO.">
+    <div class="slide">
+      <div class="kick">06 · The risks</div>
+      <h2 class="stitle" style="margin-top:14px;max-width:1650px">Principal risks are owned, triggered and priced</h2>
+      <p class="ssub" style="margin-top:16px">Full register in Section 5; any exposure of 12+ escalates to EXCO.</p>
+      <table style="width:100%;border-collapse:collapse;margin-top:40px;font-size:var(--t-small)">
+        <thead><tr style="border-bottom:2px solid var(--color-text);text-align:left;font-family:var(--font-heading)">
+          <th style="padding:14px 12px 14px 0">Risk (cause, event, effect)</th><th style="padding:14px 12px;width:110px">Exp.</th><th style="padding:14px 12px;width:150px">Owner</th><th style="padding:14px 12px">Response and trigger</th><th style="padding:14px 0 14px 12px;width:110px">Resid.</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--color-divider)"><td style="padding:16px 12px 16px 0">Peg adjustment forces immediate re-pricing of exposure</td><td style="padding:16px 12px;font-weight:800;color:var(--color-accent);font-size:28px">15</td><td style="padding:16px 12px">CFO</td><td style="padding:16px 12px">Planning band 22.00–22.50; re-baseline within 30 days of announcement</td><td style="padding:16px 0 16px 12px;font-weight:800">8</td></tr>
+          <tr style="border-bottom:1px solid var(--color-divider)"><td style="padding:16px 12px 16px 0">Banks ration USD; imports threatened</td><td style="padding:16px 12px;font-weight:800;color:var(--color-accent);font-size:28px">15</td><td style="padding:16px 12px">CFO</td><td style="padding:16px 12px">Multi-bank relationships; USD buffer; escalate to authorities on refusal</td><td style="padding:16px 0 16px 12px;font-weight:800">8</td></tr>
+          <tr style="border-bottom:1px solid var(--color-divider)"><td style="padding:16px 12px 16px 0">Resorts reject USD billing; Outcome 1 missed</td><td style="padding:16px 12px;font-weight:800;font-size:28px">12</td><td style="padding:16px 12px">GM, BD</td><td style="padding:16px 12px">New contracts only; FX-indexed pricing fallback if uptake &lt; 50% by Q1 2027</td><td style="padding:16px 0 16px 12px;font-weight:800">6</td></tr>
+          <tr><td style="padding:16px 12px 16px 0">Ministry rejects FX clauses in awards</td><td style="padding:16px 12px;font-weight:800;font-size:28px">12</td><td style="padding:16px 12px">Legal / CFO</td><td style="padding:16px 12px">FIDIC precedent drafting; ring-fence funds for unhedged exposure</td><td style="padding:16px 0 16px 12px;font-weight:800">6</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:var(--t-small);color:var(--color-neutral-700);margin:auto 0 40px;line-height:1.55;max-width:1650px">The register informs the recommendation: the two highest exposures (peg, USD rationing) are macro events the project cannot prevent — which is exactly why the recommended option builds buffers, bands and fallbacks rather than assuming stability.</p>
+      <div class="foot"><span>Project Fen Rakkaa</span><span>07</span></div>
+    </div>
+  </section>
+
+  <section data-label="The ask" data-speaker-notes="The ask: approve Option C. A gated 4.5 million, 0.3 percent of revenue, against exposure in the tens of millions. It delivers three goals the Business Plan has already set. Failure is defined in advance, measured at two gates, and priced through the Option B fallback. I welcome the panel's questions.">
+    <div class="slide" style="background:var(--color-accent);color:var(--color-bg);justify-content:space-between">
+      <div style="font-family:var(--font-heading);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:var(--t-kicker)">The decision requested</div>
+      <div>
+        <div style="height:2px;background:var(--color-bg);width:100%;margin-bottom:36px"></div>
+        <h2 style="font-family:var(--font-heading);font-weight:800;font-size:84px;line-height:1;letter-spacing:-.01em;margin:0">Approve Option C:<br>Project Fen Rakkaa</h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:52px;margin-top:52px">
+          <div><div style="font-family:var(--font-heading);font-weight:800;font-size:72px">MVR 4.5m</div><p style="font-size:var(--t-small);margin-top:8px;line-height:1.5">Gated spend. 0.3% of revenue against exposure in the tens of millions.</p></div>
+          <div><div style="font-family:var(--font-heading);font-weight:800;font-size:72px">12 months</div><p style="font-size:var(--t-small);margin-top:8px;line-height:1.5">Two gates. Fallback to Option B priced at MVR 1.5m.</p></div>
+          <div><div style="font-family:var(--font-heading);font-weight:800;font-size:72px">3 BP26 goals</div><p style="font-size:var(--t-small);margin-top:8px;line-height:1.5">Delivers USD billing (2.3.4), USD reserve (1.5.10) and contract review (3.3.2).</p></div>
+        </div>
+        <p style="font-size:var(--t-body);margin-top:44px;max-width:1550px;line-height:1.45">The causes MWSC can act on are internal. Option C beats both alternatives and stays positive even if most estimated benefits fail to appear. Failure is defined in advance, measured at the gates, and priced.</p>
+      </div>
+      <div style="font-family:var(--font-heading);font-weight:700;font-size:var(--t-small);display:flex;justify-content:space-between"><span>Hussain Shaany · S2610358 · PTMT9002</span><span>Questions welcome</span></div>
+    </div>
+  </section>
+
+</x-import>
+</x-dc>
+</body>
+</html>

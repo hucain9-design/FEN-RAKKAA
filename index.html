@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-282fcde0-947c-4eb1-ba59-6e89f4523b9b/styles.css">
+<style>
+@keyframes blink { 0%,80%,100%{opacity:.25} 40%{opacity:1} }
+.doc h2 { font-size:26px; margin:36px 0 10px; }
+.doc h3 { font-size:19px; margin:26px 0 8px; }
+.doc h4 { font-size:15px; text-transform:uppercase; letter-spacing:.06em; margin:20px 0 6px; color:var(--color-accent-700); }
+.doc p { font-size:15px; line-height:1.65; margin:0 0 14px; text-wrap:pretty; }
+.doc ul { margin:0 0 14px; padding-left:20px; }
+.doc li { margin-bottom:6px; line-height:1.6; }
+.doc .table { margin:8px 0 22px; }
+.doc figure { margin:16px 0 22px; padding:16px; background:var(--color-surface); border:1px solid var(--color-divider); }
+.qa { border-left:2px solid var(--color-accent); padding:2px 0 2px 16px; margin:10px 0 16px; }
+.qa .q { font-weight:600; margin-bottom:4px; }
+.qa .a { color:var(--color-neutral-800); }
+.chip:hover { background:var(--color-accent-100); border-color:var(--color-accent); }
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+  <div class="nav" style="position:sticky;top:0;z-index:10;background:var(--color-bg)">
+    <div class="nav-brand">FEN RAKKAA<span style="color:var(--color-accent)">.</span></div>
+    <div style="display:flex;gap:2px;flex-wrap:wrap">
+      <button style="{{ ovTab }}" onClick="{{ setOverview }}">Overview</button>
+      <button style="{{ propTab }}" onClick="{{ setProposal }}">Proposal</button>
+      <button style="{{ defTab }}" onClick="{{ setDefence }}">Defence Companion</button>
+      <button style="{{ presTab }}" onClick="{{ setPres }}">Presentation</button>
+      <button style="{{ chatTab }}" onClick="{{ setChat }}">Ask AI</button>
+      <button style="{{ dlTab }}" onClick="{{ setDownloads }}">Downloads</button>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div style="display:{{ dispOverview }}">
+    <div style="max-width:1000px;margin:0 auto;padding:48px 32px 64px">
+      <div class="tag tag-outline" style="margin-bottom:20px">PTMT9002 · Strategic Project Development</div>
+      <h1 style="font-size:56px;line-height:1.02;margin:0 0 12px">Governing the US Dollar exposure of MWSC</h1>
+      <p style="font-size:18px;max-width:680px;color:var(--color-neutral-800);margin:0 0 8px">Project Fen Rakkaa — a twelve-month, MVR 4.5 million programme to earn dollars, cut dollar spending, and put permanent governance around foreign-exchange risk.</p>
+      <p class="text-muted" style="font-size:14px">Hussain Shaany · S2610358 · Lecturer: Mr. Hussain Haleem · Oral defence 15 August 2026</p>
+      <hr class="hr">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin:8px 0 32px;background:var(--color-divider)">
+        <div style="background:var(--color-bg);padding:20px 16px"><div style="font-size:34px;font-weight:800">MVR 4.5m</div><div class="text-muted" style="font-size:13px">12-month budget · 0.29% of revenue</div></div>
+        <div style="background:var(--color-bg);padding:20px 16px"><div style="font-size:34px;font-weight:800;color:var(--color-accent)">44.3%</div><div class="text-muted" style="font-size:13px">Parallel-market premium over the peg</div></div>
+        <div style="background:var(--color-bg);padding:20px 16px"><div style="font-size:34px;font-weight:800">MVR 55m</div><div class="text-muted" style="font-size:13px">Adopted planning estimate, FX exposure (A2)</div></div>
+        <div style="background:var(--color-bg);padding:20px 16px"><div style="font-size:34px;font-weight:800">5.8×</div><div class="text-muted" style="font-size:13px">Benefit–cost ratio · NPV MVR 33.4m</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:var(--color-divider)">
+        <div style="background:var(--color-bg);padding:24px" class="card" role="button" onClick="{{ setProposal }}">
+          <div class="card-kicker">Document 01</div>
+          <div class="card-title" style="font-size:22px">The Proposal</div>
+          <p class="card-body" style="font-size:14px">The full strategic project development proposal: organisation, root-cause and gap analysis, three options, financial appraisal, logframe and risk register.</p>
+          <span class="btn btn-ghost" style="align-self:flex-start;padding-left:0">Read the proposal →</span>
+        </div>
+        <div style="background:var(--color-bg);padding:24px" class="card" role="button" onClick="{{ setDefence }}">
+          <div class="card-kicker">Document 02</div>
+          <div class="card-title" style="font-size:22px">The Defence Companion</div>
+          <p class="card-body" style="font-size:14px">Section-by-section defence notes: what each part says, why it is designed that way, the evidence, rejected alternatives, and the likely questions with speakable answers.</p>
+          <span class="btn btn-ghost" style="align-self:flex-start;padding-left:0">Open the companion →</span>
+        </div>
+        <div style="background:var(--color-bg);padding:24px" class="card" role="button" onClick="{{ setPres }}">
+          <div class="card-kicker">Document 03</div>
+          <div class="card-title" style="font-size:22px">The Presentation</div>
+          <p class="card-body" style="font-size:14px">The eight-slide defence deck with speaker notes — problem, evidence, options, value, delivery, risks and the ask. Present it live or export to PDF / PowerPoint.</p>
+          <span class="btn btn-ghost" style="align-self:flex-start;padding-left:0">Open the deck →</span>
+        </div>
+      </div>
+      <div style="margin-top:2px;background:var(--color-accent);color:var(--color-bg);padding:32px" role="button" onClick="{{ setChat }}">
+        <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.85;margin-bottom:8px">Practice tool</div>
+        <div style="font-size:26px;font-weight:800;font-family:var(--font-heading);margin-bottom:6px">Rehearse the defence with the AI examiner</div>
+        <p style="font-size:15px;max-width:640px;margin:0 0 4px;opacity:.92">Ask any question a panel might raise. The assistant answers strictly from the proposal and the defence companion — the numbers, the evidence, and the reasoning you have prepared.</p>
+        <span style="font-size:14px;font-weight:800;text-decoration:underline;text-underline-offset:3px">Start asking →</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROPOSAL -->
+  <div style="display:{{ dispProposal }}">
+    <div id="proposal-doc" class="doc" style="max-width:820px;margin:0 auto;padding:48px 32px 80px">
+      <div class="text-muted" style="font-size:13px;letter-spacing:.06em;text-transform:uppercase">Faculty of Business Management · Qasim Ibrahim School of Business · MSc Project Management</div>
+      <h1 style="font-size:40px;line-height:1.05;margin:14px 0 6px">Strategic Project Development Proposal</h1>
+      <p style="font-size:17px;color:var(--color-accent-700);margin:0 0 4px">Project Fen Rakkaa — Governing the US Dollar Exposure of Male' Water and Sewerage Company</p>
+      <p class="text-muted" style="font-size:14px">Hussain Shaany · S2610358 · Lecturer: Mr. Hussain Haleem · 13 August 2026 · Word count 4,416</p>
+      <hr class="hr">
+
+      <h2>1. Introduction</h2>
+      <p>This document presents a strategic project development proposal for Male' Water and Sewerage Company (MWSC). The Business Plan 2026 identifies the USD exchange rate crisis as its top corporate challenge: MWSC earns in Maldivian Rufiyaa (MVR) but pays for imports in US Dollars (USD), and the widening gap now feeds directly into its cost base. The proposal analyses the gaps behind this exposure and proposes a project to close them.</p>
+      <p>The proposed project, Fen Rakkaa ("safeguarding water"), is a twelve-month, MVR 4.5 million programme with three thrusts: earn revenue in dollars, cut dollar spending, and set clear rules for foreign exchange (FX) risk.</p>
+      <p>The report identifies the organisation and the project's strategic importance, presents the proposal document, then evaluates three options, recommends the most feasible, and develops a Logical Framework Matrix (Logframe) and Risk Management Plan for it.</p>
+
+      <h2>2. Organisation and Case for Change</h2>
+      <h3>2.1 Organisational Context</h3>
+      <p>Established in 1995, MWSC is the pioneer water and sewerage utility in the Maldives and a state-owned enterprise, 80% owned by the Government and 20% by Hitachi, with a total of 267,000 shares (MWSC, 2025b). It runs eight operation centres including the Greater Male' region, serving over half the population, while Fenaka Corporation covers most outer islands. MWSC is also the country's sole domestic manufacturer of PVC and PE pipes, undertaking engineering projects for government and resort clients (MWSC/AGO, 2025).</p>
+      <ul>
+        <li>Core purpose: "to help our communities lead a PURE life" (MWSC, 2025b).</li>
+        <li>Audited FY2024: revenue MVR 1.58 billion; net profit MVR 217.5 million (MWSC/AGO, 2025).</li>
+        <li>Business Plan 2026: targets revenue of MVR 1.6 billion and net profit of MVR 186.9 million, and to "build strong inroads toward US dollar revenue streams" while maintaining reliable utility services (MWSC, 2025a).</li>
+      </ul>
+      <p>FY2024 is the latest audited annual report; FY2025 appears as audited comparatives in the Q2 2026 report; in-year 2026 figures are unaudited. All figures are Company rather than Group, for consistency.</p>
+
+      <h3>2.2 The Strategic Problem</h3>
+      <p>The parallel-market rate recently reached MVR 22.25 per USD, a 44.29% premium above the official MVR 15.42 (Maldives Monetary Authority, 2026), rising steadily in a structural, not temporary, imbalance (Adhadhu, 2026). External debt service reached an estimated USD 1.7 billion in 2026, and official reserves fell from a peak of USD 1.33 billion in March 2026 to USD 717.9 million (1.4 months of import cover) in April after a USD 500 million sukuk repayment and currency swap; gross reserves continued to deteriorate to USD 638.03 million by July 2026 (Maldives Monetary Authority, 2026; Ministry of Finance and Planning, 2026; World Bank, 2026).</p>
+      <p>MWSC earns in MVR while key inputs (membranes, tanks, pumps, valves, meters) are bought in USD, so it is constantly exposed to currency shortages and rate pressure. Audited FY2024 disclosures show trade receivables of MVR 877.8 million against cash of MVR 50.2 million, a MVR 192.1 million impairment on gross receivables of MVR 1.23 billion flagged as a Key Audit Matter, and net finance costs up to MVR 55.9 million (MWSC/AGO, 2025).</p>
+      <p>The trajectory confirms this: audited comparatives show FY2025 revenue of MVR 1.37 billion (13% below 2024, only 62% of the MVR 2.2 billion goal) and profit after tax of MVR 146 million, about a third of 2024 (MWSC, 2026). At H1 2026, revenue of MVR 749.3 million was 6.4% below budget, the gap widening from 1.9% (Q1) to 10.9% (Q2).</p>
+
+      <h3>2.3 Strategic Contribution and Cost of Inaction</h3>
+      <p>Fen Rakkaa is of paramount strategic importance because it directly addresses the misalignment between the currency in which MWSC earns and the currency in which it spends. It is not merely a treasury adjustment; it is a fundamental requirement for the company's financial resilience, for three key reasons:</p>
+      <ul>
+        <li><strong>Strategic Alignment:</strong> it is the primary vehicle for three goals the Business Plan already sets but has not yet operationalised: USD billing (Goal 2.3.4), a USD share of the cash reserve (Goal 1.5.10) and legal review of foreign-currency contracts (Goal 3.3.2). The intended benefit is a structural reduction in net FX exposure that compounds year on year.</li>
+        <li><strong>Financial Protection:</strong> the consequence of no action is an unmanaged annual exposure estimated at MVR 40–70 million (A2), together with the operational risk that USD shortages interrupt imports of chemicals and spares and threaten water supply itself.</li>
+        <li><strong>Capability Building:</strong> it creates treasury discipline and contract governance that persist after the project closes and are difficult for others to copy (Barney, 1991), strengthening the financial element of the strategy mix (Callahan and Brooks, 2008).</li>
+      </ul>
+      <table class="table"><thead><tr><th>ID</th><th>Assumption</th><th>Basis and treatment</th></tr></thead><tbody>
+        <tr><td>A1</td><td>Effective procurement rate MVR 22.25 (band 22.00–22.50)</td><td>Parallel rate, 11 Aug 2026 (Adhadhu, 2026); 22.25/15.42 = 44.3%; stress-tested ±10%.</td></tr>
+        <tr><td>A2</td><td>Unmanaged FX exposure: planning estimate MVR 55m p.a.</td><td>2024 operating costs MVR 935.3m (MWSC/AGO, 2025) × 20–25% dollar-linked = MVR 187–234m. Vs the peg (44.3%): 83–104m; vs 2024 realised rates (~18, +23.5%): 44–55m. The adopted 55m is the ceiling of the conservative realised-rate base, 23% below the midpoint of the two bases (Appendix B).</td></tr>
+        <tr><td>A3</td><td>Benefits MVR 25–40m p.a. at maturity</td><td>Ramp on A2 (4.2); capture band with procurement anchored to MWSC's own 5% savings goal (2025a); tested to 17% (Appendix B).</td></tr>
+      </tbody></table>
+      <p class="text-muted" style="font-size:13px">Table 1. Assumptions register. Every Section 4 figure traces to a cited source or to A1–A3.</p>
+
+      <h2>3. Project Proposal Document</h2>
+      <h3>3.1 Project Scope and Objectives</h3>
+      <p>Fen Rakkaa reduces net FX exposure by raising USD revenue, cutting USD expenditure and strengthening FX governance across treasury, procurement and contracts. It builds capabilities, systems and processes, not physical assets.</p>
+      <table class="table"><thead><tr><th>Element</th><th>Definition</th></tr></thead><tbody>
+        <tr><td>Project goal</td><td>Reduce MWSC's net FX exposure and embed permanent FX governance, for MVR 4.5 million over 12 months (0.29% of 2024 revenue), with no new permanent staff</td></tr>
+        <tr><td>Key deliverables</td><td>FX exposure register and monthly dashboard; USD billing framework with dedicated USD account and buffer policy; revised FX planning-rate directive; standard FX clause library</td></tr>
+        <tr><td>Acceptance criteria</td><td>Dashboard live and covering 100% of USD spend; USD account operational with buffer policy approved by EXCO; planning-rate directive issued to all divisions; clause library adopted in 100% of new tenders</td></tr>
+        <tr><td>In scope</td><td>Enterprise-wide USD spend; procurement; supplier and customer contracts; treasury and cash-management processes; tender and contract management</td></tr>
+        <tr><td>Out of scope</td><td>National monetary policy and the peg; speculative hedging; tariff decisions; capital-project delivery. Excluded to keep the project focused and apolitical</td></tr>
+        <tr><td>Constraints</td><td>Limited USD availability; MVR-denominated government projects; the MVR 4.5m budget cap; SOE approval cycles</td></tr>
+        <tr><td>Dependencies</td><td>Data-analytics rollout; procurement digitalisation; Legal risk framework; bank and monetary-authority cooperation</td></tr>
+        <tr><td>Key assumptions</td><td>Effective procurement rate MVR 22.25 within a 22.00–22.50 band (A1); dollar-linked cost share 20–25% (A2), to be replaced by measured values from the exposure register</td></tr>
+      </tbody></table>
+      <p class="text-muted" style="font-size:13px">Table 2. Project scope statement.</p>
+      <table class="table"><thead><tr><th>#</th><th>SMART objective (baseline, target, date)</th><th>How success is recognised</th></tr></thead><tbody>
+        <tr><td>O1</td><td>USD exposure register and dashboard covering 100% of USD spend by Dec 2026; ≥20% of the MVR 30m reserve in USD by Mar 2027 (baselines: none; 0%)</td><td>Dashboard 12 of 12; EXCO minutes; treasury statements</td></tr>
+        <tr><td>O2</td><td>USD billing for ≥50% of resort customers and ≥20% of project revenue by Jun 2027 (baseline ≈0%)</td><td>Billing data; signed contracts</td></tr>
+        <tr><td>O3</td><td>Volume-adjusted USD procurement spend down 10–15% by Sep 2027 (baseline: current spend)</td><td>Procurement reports; audited savings</td></tr>
+        <tr><td>O4</td><td>100% of new foreign-currency contracts legally reviewed with FX clauses from Q4 2026 (baseline: ad hoc)</td><td>Legal log; tender audits</td></tr>
+      </tbody></table>
+      <p class="text-muted" style="font-size:13px">Table 3. SMART objectives: MWSC's own Business Plan KPIs, adopted not invented (MWSC, 2025a).</p>
+
+      <h3>3.2 Key Issues Analysis</h3>
+      <h4>Root-Cause Analysis</h4>
+      <p>An evidence-based diagnosis must separate what is visible from what drives it. The falling margins, tight cash and rising finance costs in Section 2.2 are symptoms; the underlying problem is the structural mismatch between rufiyaa income and dollar costs. Four internal causes sustain that mismatch, in order of priority:</p>
+      <ul>
+        <li><strong>Under-developed dollar revenue:</strong> the Business Plan records the 150-plus resort sector and international consulting as overlooked markets. Ranked first because dollar income is a natural hedge: every rufiyaa converted to dollars shrinks the net exposure the other three causes each enlarge.</li>
+        <li><strong>No treasury controls:</strong> budgets are prepared at the official MVR 15.42, there is no exposure register, and no dollar buffer is held, so the company plans at a rate it cannot transact at.</li>
+        <li><strong>Contract design:</strong> project contracts are fixed-price in rufiyaa without FX adjustment clauses, so MWSC silently absorbs currency movements it never priced into the bid.</li>
+        <li><strong>No ownership:</strong> no single function owns FX risk, which is why causes 2 and 3 persist. Fixing processes without fixing ownership is single-loop learning; the project targets the governing assumption itself, which is double-loop learning (Argyris, 1977).</li>
+      </ul>
+      <h4>Wishbone (Fishbone) Analysis</h4>
+      <p>The causes are structured across six categories: Macroeconomic Environment, Revenue Structure, Financial and Treasury Practices, Procurement and Supply Chain, Contracts and Governance, and Capability and Culture. Only the first sits outside MWSC's control; the remaining five are internal and therefore actionable. The categories are interdependent, so the options in Section 4 are distinguished by how many linked causes each resolves rather than by how much capital each spends (Ishikawa, 1986).</p>
+      <h4>Gap Analysis</h4>
+      <table class="table"><thead><tr><th>Domain</th><th>Current state (2026)</th><th>Future state (Q3 2027) and what closes the gap</th></tr></thead><tbody>
+        <tr><td>Planning / treasury</td><td>Budgets at 15.42; no buffer; cash 50.2m vs receivables 877.8m</td><td>22.00–22.50 band; 20% USD reserve: directive, templates, USD account</td></tr>
+        <tr><td>USD revenue</td><td>≈0% in USD; resort and international consulting overlooked</td><td>≥50% of resorts, ≥20% of project revenue: account team, USD terms</td></tr>
+        <tr><td>Procurement</td><td>Fragmented imports; capital tied in idle stock</td><td>Consolidated FX-aware plan: calendar, due diligence, bulk frameworks</td></tr>
+        <tr><td>Contracts / ownership</td><td>No FX clauses; risk absorbed, ownership not established</td><td>Adjustment clauses, 100% review, ownership: clause library, committee, KPIs</td></tr>
+      </tbody></table>
+      <p class="text-muted" style="font-size:13px">Table 4. Gap analysis. Every gap is a capability, behaviour or control rather than a physical asset.</p>
+
+      <h3>3.3 Stakeholder Identification and Analysis</h3>
+      <p>Stakeholders are mapped on a power–interest grid (Freeman, 1984) cross-checked for salience (Mitchell, Agle and Wood, 1997). Table 5 separates influence from the specific impact each party can have on delivery, distinguishes evidenced (E) from inferred (I) positions, and translates each into a concrete engagement action. Engagement with ministries and the monetary authority is deliberately formal and channelled through official correspondence only; USD billing is applied to resort and project clients who transact in dollars and must never shift currency cost onto domestic households, which is why tariff decisions are excluded from scope.</p>
+      <table class="table"><thead><tr><th>Stakeholder</th><th>Power / interest</th><th>Impact on the project</th><th>Position</th><th>Engagement action</th></tr></thead><tbody>
+        <tr><td>Board / MD</td><td>Very high / high</td><td>Approves funding; can stop or continue at each gate</td><td>Supportive; sponsoring office changed mid-2026 (E)</td><td>Re-secure sponsorship; gate sign-off; quarterly reporting</td></tr>
+        <tr><td>Finance / CFO</td><td>High / high</td><td>Owns delivery; can accelerate or stall treasury workstreams</td><td>Owner; strongly supportive (E)</td><td>Chairs steering committee; owns dashboard and buffer policy</td></tr>
+        <tr><td>Finance Ministry / PCB</td><td>Very high / high</td><td>Can veto treasury or reserve changes via SOE rules</td><td>Conditional (I)</td><td>Formal SOE briefings; sequence approval before treasury change</td></tr>
+        <tr><td>Monetary authority, banks</td><td>High / medium</td><td>Controls USD allocation; can deny dollars the buffer needs</td><td>Neutral; urgent claim (I)</td><td>Essential-utility case; multi-bank relationships</td></tr>
+        <tr><td>Client ministry (MIH&UD)</td><td>High / high</td><td>Can reject FX clauses in awarded contracts</td><td>May resist FX clauses (I)</td><td>Early consultation using FIDIC precedent; new awards only</td></tr>
+        <tr><td>Resort / B2B customers</td><td>Medium / high</td><td>Can refuse USD billing and undermine Outcome 1</td><td>Resistant to repricing (I)</td><td>New contracts only; bundle service gains; benchmark competitors</td></tr>
+        <tr><td>Internal divisions, staff</td><td>Medium / high</td><td>Deliver the workstreams; can stall through change fatigue</td><td>Supportive but stretched (E)</td><td>Joint KPIs; deliver through OneMWSC; publicise early wins</td></tr>
+        <tr><td>Auditor General / AGO</td><td>High / low</td><td>Findings can validate or discredit reported benefits</td><td>Independent (E)</td><td>Keep satisfied: full audit trail; Internal Audit verifies benefits</td></tr>
+        <tr><td>Domestic customers / public</td><td>Low / low</td><td>Perceived cost-shifting would create political backlash</td><td>Unaware; sensitive to tariffs (I)</td><td>Monitor: tariffs excluded; no change to household billing</td></tr>
+      </tbody></table>
+      <p class="text-muted" style="font-size:13px">Table 5. Stakeholder analysis. (E) evidenced from disclosures; (I) inferred and reviewed at each gate.</p>
+
+      <h2>4. Strategic Project Plan</h2>
+      <h3>4.1 Project Options and Strategies</h3>
+      <p>Three genuinely distinct options were evaluated, from a status-quo baseline through a do-minimum fix to full transformation. A baseline is included so the value of intervention is tested rather than assumed.</p>
+      <ul>
+        <li><strong>Option A: "Do Nothing" (Baseline)</strong> — continue budgeting at the official MVR 15.42 and absorb losses. Its true cost is the full A2 exposure; it appears safe while failing every strategic objective, which is why doing nothing is the most expensive option over time.</li>
+        <li><strong>Option B: "The Treasury Fix" (Do-Minimum)</strong> — a realistic planning rate, consolidated orders and a basic dollar buffer, ~MVR 1.5 million. Cheap and fast, but revenue stays entirely in rufiyaa, so the root cause is untouched.</li>
+        <li><strong>Option C: "The Full Fen Rakkaa Programme" (Integrated)</strong> — six coordinated workstreams covering governance, dollar revenue, treasury, procurement, contracts and energy savings, ~MVR 4.5 million over twelve months under two stage gates. The only option addressing all four root causes; financing is achievable, and the staged approach allows a priced de-scope to Option B if benefits are not realised.</li>
+      </ul>
+      <table class="table"><thead><tr><th>Criterion</th><th>Weight</th><th>Opt A</th><th>Opt B</th><th>Opt C</th></tr></thead><tbody>
+        <tr><td>Strategic fit</td><td>20%</td><td>1</td><td>3</td><td>5</td></tr>
+        <tr><td>Benefits / financial value</td><td>20%</td><td>1</td><td>3</td><td>5</td></tr>
+        <tr><td>Feasibility / capability</td><td>15%</td><td>5</td><td>4</td><td>4</td></tr>
+        <tr><td>Cost</td><td>15%</td><td>5</td><td>4</td><td>3</td></tr>
+        <tr><td>Time to benefit</td><td>10%</td><td>3</td><td>4</td><td>3</td></tr>
+        <tr><td>Risk reduction</td><td>10%</td><td>1</td><td>2</td><td>5</td></tr>
+        <tr><td>Stakeholder acceptability</td><td>5%</td><td>2</td><td>3</td><td>4</td></tr>
+        <tr><td>Sustainability of change</td><td>5%</td><td>1</td><td>2</td><td>5</td></tr>
+        <tr style="font-weight:700"><td>Weighted total</td><td>100%</td><td>2.45</td><td>3.25</td><td>4.30</td></tr>
+      </tbody></table>
+      <p class="text-muted" style="font-size:13px">Table 6. Weighted appraisal. Weights fixed before scoring.</p>
+
+      <h3>4.2 Financial Appraisal and Sensitivity</h3>
+      <p>Benefits ramp at 15%, 35% and 45% of the MVR 55 million exposure (A2) over three years, against MVR 4.5m one-off and MVR 1.2m annual costs at a 12% discount. Three-year NPV is MVR 33.4 million, benefit-cost ratio 5.8, payback within Year 1. An IRR is not quoted: at this cost scale it would imply false precision (HM Treasury, 2022).</p>
+      <p>The recommendation is robust to reasonable changes. Doubling the cost weight to 30% and cutting strategic fit to 5% still leaves Option C ranked first (4.00 vs 3.40 and 3.05). The programme breaks even at just 17% of estimated benefits and remains positive at 40% even with running costs over by two-thirds; Gate 2 is set at 35%, above break-even. A change to the peg would strengthen, not weaken, the case for FX governance.</p>
+      <table class="table"><thead><tr><th>Year</th><th>Benefit (MVR m)</th><th>Cost (MVR m)</th><th>Net</th><th>DF @12%</th><th>Present value</th></tr></thead><tbody>
+        <tr><td>1</td><td>8.25</td><td>5.70</td><td>2.55</td><td>0.8929</td><td>2.28</td></tr>
+        <tr><td>2</td><td>19.25</td><td>1.20</td><td>18.05</td><td>0.7972</td><td>14.39</td></tr>
+        <tr><td>3</td><td>24.75</td><td>1.20</td><td>23.55</td><td>0.7118</td><td>16.76</td></tr>
+        <tr style="font-weight:700"><td>Totals</td><td>52.25</td><td>8.10</td><td>44.15</td><td></td><td>NPV 33.43</td></tr>
+      </tbody></table>
+      <p class="text-muted" style="font-size:13px">Appendix A. PV of benefits MVR 40.33m; PV of costs MVR 6.90m; BCR 5.84; break-even = 17.1%.</p>
+
+      <h3>4.3 Recommendation</h3>
+      <p>Option C, the Full Fen Rakkaa Programme, is unequivocally recommended, with Option B retained as a priced fallback should funding be cut. It provides the best available balance of strategic alignment, financial return and risk control, and is the only option that resolves every root cause. The accepted trade-off is additional workload in a crowded change year, managed by delivering through existing KPIs and governance. The principal limitation is that benefits rest on an assumed dollar-linked share of costs rather than published segment data, which is why the exposure register is the first deliverable and the programme is gated rather than committed in full. Because the environment is complex rather than predictable, the design probes, learns and adjusts at each gate (Snowden and Boone, 2007).</p>
+
+      <h3>4.4 Logical Framework Matrix (Logframe) — Option C</h3>
+      <table class="table"><thead><tr><th>Level</th><th>Indicators</th><th>Assumptions</th><th>Owner</th></tr></thead><tbody>
+        <tr><td>Impact</td><td>FX losses −60% vs A2 baseline; zero FX-driven service interruptions, by FY2027</td><td>Peg stable; tourism inflows continue</td><td>Board / MD</td></tr>
+        <tr><td>Outcome</td><td>USD billing ≈0%→≥50% of resorts, ≥20% of project revenue (Q2 2027); procurement −10–15%; buffer→≥20%</td><td>Clients accept USD terms; suppliers accept bulk</td><td>CFO; GM Bus. Dev.</td></tr>
+        <tr><td>Outputs</td><td>Register and dashboard live (Q4 2026); ≥5 resort contracts (Q1 2027); import plan ≥90% of value; 100% of tenders compliant</td><td>Bank cooperation; SAP data adequate</td><td>Programme Lead</td></tr>
+        <tr><td>Activities</td><td>Mobilise committee; register; USD account; clauses; bank engagement; resort campaign; FX training</td><td>MVR 4.5m released; champions allocated</td><td>Programme Lead</td></tr>
+      </tbody></table>
+      <p class="text-muted" style="font-size:13px">Table 7. Logframe. Gate 1 (month 6) tests governance tools are live; Gate 2 (month 12) tests ≥35% benefit realisation.</p>
+
+      <h2>5. Risk Management Plan</h2>
+      <p>A prioritised register covers the strategic, financial, stakeholder, governance, delivery, operational and sustainability risks of Option C. Each risk is cause→event→effect, scored likelihood × impact and ranked by exposure (ISO, 2018). Any residual exposure of 12+ escalates to the executive committee.</p>
+      <table class="table"><thead><tr><th>ID</th><th>Category</th><th>Risk (cause→event→effect)</th><th>L×I</th><th>Owner</th><th>Response and trigger</th><th>Res.</th></tr></thead><tbody>
+        <tr><td>R1</td><td>Strategic</td><td>Thin reserves→peg adjusted→exposure repriced</td><td>3×5=15</td><td>CFO</td><td>Banded rate; quarterly review. Trigger: announcement→re-baseline in 30 days</td><td>8</td></tr>
+        <tr><td>R2</td><td>Financial</td><td>FX rationing→dollars unavailable→shortages threaten production</td><td>3×5=15</td><td>CFO</td><td>Multi-bank; safety stock. Trigger: refusal→draw buffer; escalate</td><td>8</td></tr>
+        <tr><td>R3</td><td>Stakeholder</td><td>Client bargaining power→resorts refuse USD billing→outcome missed</td><td>3×4=12</td><td>GM Bus. Dev.</td><td>New contracts only. Trigger: &lt;50% uptake Q1 2027→FX-indexed pricing</td><td>6</td></tr>
+        <tr><td>R4</td><td>Governance</td><td>Fixed-price awards; leadership change→clauses rejected→margins exposed</td><td>3×4=12</td><td>Legal/CFO</td><td>FIDIC precedent; re-secure sponsorship. Trigger: rejection→ring-fence funds</td><td>6</td></tr>
+        <tr><td>R5</td><td>Delivery</td><td>Crowded agenda→fatigue slows delivery→benefits delayed</td><td>3×3=9</td><td>Programme Lead</td><td>Embed in KPIs. Trigger: two missed milestones→re-phase</td><td>4</td></tr>
+        <tr><td>R6</td><td>Financial</td><td>Estimated baselines→benefits overstated→case weakens</td><td>2×4=8</td><td>Programme Lead</td><td>Conservative baselines; Internal Audit. Trigger: &lt;35% at Gate 2→de-scope to B</td><td>4</td></tr>
+        <tr><td>R7</td><td>Operational</td><td>Consolidated imports→mis-forecast→spares stock-out</td><td>2×4=8</td><td>Procurement</td><td>Criticality classes; min-max. Trigger: A-class stock-out→air-freight</td><td>4</td></tr>
+        <tr><td>R8</td><td>Sustainability</td><td>Behaviour-dependent gains→discipline lapses→benefits erode</td><td>2×3=6</td><td>CFO</td><td>Corporate register; divisional KPIs. Trigger: 2 quarters unreviewed→reinstate committee</td><td>2</td></tr>
+      </tbody></table>
+      <p class="text-muted" style="font-size:13px">Table 8. Risk register. Only R1–R4 could alter the recommendation; each has a fallback. R6 is the hinge: its trigger is Gate 2, its response the de-scope priced as Option B.</p>
+
+      <h2>6. Conclusion</h2>
+      <p>This proposal has set out a strategically vital project for MWSC. The causes the company can act on are internal, and the recommended Full Programme addresses all of them; the appraisal shows it outperforms both doing nothing and the partial fix on every weighting tested. The logframe and risk register state in advance how delivery will be measured, what failure would look like and what the organisation would do in response. Approval of Option C is therefore requested: a gated investment of roughly 0.3% of annual revenue set against an unmanaged exposure running into the tens of millions.</p>
+
+      <h2>References</h2>
+      <ul style="font-size:13.5px;line-height:1.6">
+        <li>Adhadhu (2026) Dollar Tracker and black market rate reports. Available at: adhadhu.com/tag/dollar-blackmarket (Accessed 11 August 2026).</li>
+        <li>Argyris, C. (1977) 'Double loop learning in organizations', Harvard Business Review, 55(5), pp. 115–125.</li>
+        <li>Barney, J. (1991) 'Firm resources and sustained competitive advantage', Journal of Management, 17(1), pp. 99–120.</li>
+        <li>Callahan, K. and Brooks, L. (2008) Essentials of Strategic Project Management. Hoboken, NJ: Wiley.</li>
+        <li>Ishikawa, K. (1985) What is Total Quality Control? The Japanese Way. Englewood Cliffs, NJ: Prentice-Hall.</li>
+        <li>Maldives Monetary Authority (2026) Monthly Statistics, July 2026. Male': Maldives Monetary Authority.</li>
+        <li>Ministry of Finance and Planning (2026) Statement on the settlement of the USD 500 million Sukuk. Male': Government of Maldives.</li>
+        <li>MWSC (2025a) Business Plan 2026 (Summarized Version). Male': Male' Water &amp; Sewerage Company Pvt. Ltd.</li>
+        <li>MWSC (2025b) Corporate Profile. Male': Male' Water &amp; Sewerage Company Pvt. Ltd.</li>
+        <li>MWSC (2026) Quarterly Report Q2 2026. Male': Male' Water &amp; Sewerage Company Pvt. Ltd.</li>
+        <li>MWSC/AGO (2025) MWSC Annual Report 2024 with Audited Financial Statements. Male': Male' Water &amp; Sewerage Company Pvt. Ltd. and Auditor General's Office.</li>
+        <li>Snowden, D.J. and Boone, M.E. (2007) 'A leader's framework for decision making', Harvard Business Review, 85(11), pp. 68–76.</li>
+        <li>World Bank (2026) Maldives Development Update 2026. Washington, DC: World Bank Group.</li>
+      </ul>
+
+      <h2>Appendices</h2>
+      <h3>Appendix A — Financial workings (Section 4.2)</h3>
+      <p>Three-year discounted cash flow. Benefits ramp at 15%, 35% and 45% of the adopted MVR 55 million annual exposure (A2, A3), against MVR 4.5 million one-off and MVR 1.2 million annual running cost, discounted at 12%.</p>
+      <table class="table"><thead><tr><th>Year</th><th>Benefit (MVR m)</th><th>Cost (MVR m)</th><th>Net</th><th>DF @12%</th><th>Present value</th></tr></thead><tbody>
+        <tr><td>1</td><td>8.25</td><td>5.70</td><td>2.55</td><td>0.8929</td><td>2.28</td></tr>
+        <tr><td>2</td><td>19.25</td><td>1.20</td><td>18.05</td><td>0.7972</td><td>14.39</td></tr>
+        <tr><td>3</td><td>24.75</td><td>1.20</td><td>23.55</td><td>0.7118</td><td>16.76</td></tr>
+        <tr style="font-weight:700"><td>Totals</td><td>52.25</td><td>8.10</td><td>44.15</td><td></td><td>NPV 33.43</td></tr>
+      </tbody></table>
+      <p>PV of benefits MVR 40.33m; PV of costs MVR 6.90m; benefit–cost ratio 5.84. Break-even realisation = 6.90 / 40.33 = 17.1%. Payback occurs in Year 1, where net cash flow is already positive. Figure 4 runs realisation from 0% to 100% and tests a running-cost overrun to MVR 2.0m p.a.; the weighting stress test is in Section 4.2. The A1 rate test maps onto the same axis: at 10% below the adopted rate (MVR 20.03) the realised-rate premium falls from 23.5% to 11.3%, roughly halving the modelled exposure, equivalent to about 48% realisation and an NPV near MVR 12m, still almost three times above break-even; at 10% above (MVR 24.48) the exposure rises by about half and the case strengthens. Every input error, rate included, expresses itself on the realisation axis, which is why that is the axis tested.</p>
+      <p class="text-muted" style="font-size:13px">The submitted proposal carries Appendix A only. The full step-by-step derivations of A1–A3 (the planning band, the two exposure bases and the 71.5m averaging argument, and the benefit capture band) are set out in the Defence Companion under Section 2.3.</p>
+    </div>
+  </div>
+
+  <!-- DEFENCE (content appended below) -->
+  <div style="display:{{ dispDefence }}">
+    <div id="defence-doc" class="doc" style="max-width:820px;margin:0 auto;padding:48px 32px 80px">
+      <div class="text-muted" style="font-size:13px;letter-spacing:.06em;text-transform:uppercase">Oral defence · 15 August 2026 · PTMT9002 · v15 final</div>
+      <h1 style="font-size:38px;margin:14px 0 6px">Defence Companion</h1>
+      <p style="font-size:16px;color:var(--color-neutral-800);max-width:660px">For each section: <strong>what</strong> the document says, <strong>why</strong> it is designed that way, <strong>how</strong> the numbers or logic were built, the <strong>evidence</strong> with exact references, the <strong>alternatives</strong> rejected, and the likely <strong>questions</strong> with speakable answers. Answers are written the way you would say them out loud — practise saying them, not reading them.</p>
+      <hr class="hr">
+
+      <h2>1. Introduction</h2>
+      <h4>What it says</h4>
+      <p>MWSC earns in rufiyaa, pays for imports in dollars, and the Business Plan 2026 names the USD exchange rate crisis as the top corporate challenge. Fen Rakkaa is a twelve-month, MVR 4.5 million programme with three thrusts: earn dollars, cut dollar spending, govern FX risk. The report then follows the assignment structure: organisation, proposal document, options, recommendation, logframe, risk plan.</p>
+      <h4>Why this design</h4>
+      <p>The introduction makes exactly three moves and stops: problem, project, roadmap. It does not argue the case yet; that is Section 2's job. The three-thrust framing (earn, cut, govern) is the spine of the whole document; every workstream, objective and risk hangs off one of the three.</p>
+      <h4>Where the problem statement comes from</h4>
+      <p>The claim that this is the top corporate challenge is not your judgement, it is MWSC's own: the Business Plan 2026 lists the USD exchange rate crisis first among corporate challenges (MWSC, 2025a). That sourcing matters because it means the project responds to the organisation's stated priority, not an invented one.</p>
+      <div class="qa"><div class="q">Q: Why this project and not something bigger, like a desalination expansion?</div><div class="a">A: Because the Business Plan itself ranks the currency crisis as challenge number one, and capital projects are downstream of it: every capital project gets more expensive while the FX problem is unmanaged. Fixing the pricing of everything else comes before building more of anything.</div></div>
+      <div class="qa"><div class="q">Q: What does Fen Rakkaa mean and why a Dhivehi name?</div><div class="a">A: It means safeguarding water. The name signals that this is not a finance-department side project; currency risk now threatens the core mission, which is water security.</div></div>
+      <div class="qa"><div class="q">Q: In one sentence, what is the project?</div><div class="a">A: A twelve-month, four-and-a-half-million-rufiyaa programme that reduces MWSC's net dollar exposure by earning dollars, spending fewer dollars, and putting permanent governance around FX risk.</div></div>
+
+      <h2>2.1 Organisational Context</h2>
+      <h4>What it says</h4>
+      <p>MWSC: est. 1995, SOE, 80% Government / 20% Hitachi, eight operation centres, serves over half the population, sole local PVC and PE pipe manufacturer, engineering projects for government and resort clients. Mission: "to help our communities lead a PURE life." Audited FY2024: revenue MVR 1.58 billion, net profit MVR 217.5 million. Plan 2026: revenue MVR 1.6 billion, net profit MVR 186.9 million, and "build strong inroads toward US dollar revenue streams."</p>
+      <h4>Why these facts and not others</h4>
+      <p>Every fact is load-bearing. The ownership split explains SOE approval constraints later. "Sole pipe manufacturer" and "engineering projects for resort clients" set up the dollar-revenue opportunity in the RCA. The audited FY2024 numbers are the baseline every later comparison uses. The plan's own words about dollar revenue prove the strategy already points where the project goes.</p>
+      <h4>Evidence</h4>
+      <p>Corporate facts and mission: MWSC (2025b) Corporate Profile. Audited FY2024 figures: MWSC/AGO (2025) Annual Report 2024, pp.31–36. Plan targets and the dollar-revenue quote: MWSC (2025a) Business Plan 2026, pp.11–12. The paragraph closing 2.1 states the evidence hierarchy — FY2024 audited, FY2025 as audited comparatives inside the Q2 2026 quarterly report, in-year 2026 unaudited, all figures Company not Group. That one sentence pre-answers every "how reliable is that number" challenge; point to it whenever data quality is questioned.</p>
+      <div class="qa"><div class="q">Q: Why do you rely on 2024 accounts when it is now 2026?</div><div class="a">A: FY2024 is the latest audited annual report. FY2025 exists only as audited comparatives inside the Q2 2026 quarterly report, and 2026 figures are unaudited management accounts. I use each at the level of confidence it deserves and I say which is which throughout.</div></div>
+      <div class="qa"><div class="q">Q: Company or Group figures?</div><div class="a">A: Company, consistently, so every ratio uses the same basis. Mixing bases is how comparisons silently break.</div></div>
+      <div class="qa"><div class="q">Q: Where does the 186.9 million profit target come from?</div><div class="a">A: The Business Plan 2026 states it directly. It is also consistent with the plan setting the 2026 profit target about 14% below the audited 2024 result of 217.5 million — itself evidence the company expects the squeeze to continue.</div></div>
+
+      <h2>2.2 The Strategic Problem</h2>
+      <h4>What it says</h4>
+      <p>Two layers. National: the parallel rate hit a record MVR 22.25 on 11 August 2026, a 44.29% premium over the 15.42 peg, rising year on year (structural, not a spike); external debt service around USD 1.7 billion in 2026; reserves fell to about USD 718 million after the USD 500 million sukuk repayment in April 2026, near 1.4 months of import cover; banks rationing dollars. Company: MWSC earns MVR, buys membranes, tanks, pumps, valves, meters in USD; audited strain markers (cash 50.2m vs receivables 877.8m; 192.1m impairment as a Key Audit Matter; net finance costs 55.9m); trajectory (FY2025 revenue 1.37bn, −13%, only 62% of the 2.2bn goal; PAT 146m, about a third of 2024; H1 2026 revenue 6.4% under budget, gap widening 1.9% to 10.9%).</p>
+      <h4>Why structured national-then-company</h4>
+      <p>The national layer proves the problem is real and external; the company layer proves MWSC is specifically exposed and already bleeding. Without the first, the project looks paranoid; without the second, it looks like someone else's problem.</p>
+      <h4>How the trajectory argument works</h4>
+      <p>It is a three-point downward line: full-year 2025 worse than 2024, H1 2026 worse than its own budget, and the gap widening quarter on quarter inside 2026. Three independent measurements pointing the same way is what makes "structural, not a spike" defensible.</p>
+      <h4>Evidence, precisely</h4>
+      <ul>
+        <li>Rate 22.25, +44.29%, and the year-by-year rise: Adhadhu (2026) Dollar Tracker, captured 11 August 2026, shown as Figure 1.</li>
+        <li>Debt service ~USD 1.7bn and 1.4 months import cover: World Bank (2026); reserves after the sukuk: Ministry of Finance and Planning (2026).</li>
+        <li>Bank restrictions: Maldives Independent (2026), 23 June article.</li>
+        <li>Cash 50.2m, receivables 877.8m, impairment 192.1m (KAM), finance costs 55.9m: MWSC/AGO (2025), the KAM at p.40.</li>
+        <li>FY2025 comparatives (1.37bn revenue, 146m PAT) and margin fall 57.3%→49.8%: MWSC (2026) Q2 2026. H1 budget 800.8m vs 749.3m actual: budget MWSC (2025a) p.13, actual MWSC (2026).</li>
+      </ul>
+      <h4>A distinction to hold ready</h4>
+      <p>The fishbone shows "~USD 1.0bn debt service remaining 2026" while the text says USD 1.7 billion for 2026. Both are right: 1.7 is the full-year estimate, roughly 1.0 was what remained at mid-year after the April sukuk repayment. If anyone probes the difference — total versus remaining.</p>
+      <div class="qa"><div class="q">Q: The parallel market is technically illegal. Why is it valid evidence?</div><div class="a">A: Because it is the price at which dollars actually clear. The audited accounts and quarterly margins corroborate that MWSC's real costs move with that rate, not the official one. Planning at 15.42 when procurement happens near 22 is the fiction; the tracker is the reality.</div></div>
+      <div class="qa"><div class="q">Q: Could the FY2025 squeeze be caused by something other than FX, like demand?</div><div class="a">A: Partly, and I do not claim FX explains everything. That is why the impact indicator in the logframe is FX loss avoided rather than company profit: the project only claims the slice it controls. But the gross margin falling 7.5 points inside six months while dollar input prices rise is exactly the FX signature.</div></div>
+      <div class="qa"><div class="q">Q: What if the government devalues the peg?</div><div class="a">A: Then the numbers change but the case strengthens: a repriced peg makes FX governance more necessary, not less. That is R1 in the register, with a banded planning rate and a 30-day re-baseline trigger already designed.</div></div>
+
+      <h2>2.3 Strategic Contribution &amp; Cost of Inaction (Table 1)</h2>
+      <h4>What it says</h4>
+      <p>The case for change: paramount strategic importance, not merely a treasury adjustment, for three reasons — Strategic Alignment (delivers plan Goals 2.3.4, 1.5.10, 3.3.2), Financial Protection (inaction costs MVR 40–70 million a year plus operational risk to water supply), Capability Building (durable, hard-to-copy capabilities on the financial element of the strategy mix). Then Table 1, the assumptions register: A1 rate, A2 exposure, A3 benefits.</p>
+      <h4>Why three reasons, and these three</h4>
+      <p>They cover the three tests any investment case faces: does it fit strategy, does it protect money, does it build something lasting. Alignment cites the plan's own goal numbers so the marker can verify the fit in the source. Protection quantifies the do-nothing cost, which makes Option A comparable later. Capability invokes the resource-based view: what survives the project is the point.</p>
+      <h4>Evidence</h4>
+      <p>Goals 2.3.4 (dollar billing), 1.5.10 (USD share of cash reserve), 3.3.2 (legal review of FX contracts): MWSC (2025a), pp.26, 32 and 40. Capability theory: Barney (1991); strategy mix: Callahan and Brooks (2008).</p>
+      <h4>How each assumption was built</h4>
+      <p><strong>A1, rate 22.25 (band 22.00–22.50).</strong> Source Adhadhu, 11 Aug 2026; premium 22.25/15.42 = 1.4429 → 44.3%. The band is built from observed drift: the rate opened 2026 at 20.50 and reached 22.25 by August, ~0.25/month, so the band is the observed rate ± one month of average drift (±1.1%), reviewed quarterly with a 30-day re-baseline on any peg announcement (R1). Robustness is tested separately at ±10% (Appendix A: a 10% rate fall ≈ 48% realisation, still nearly 3× break-even).</p>
+      <p><strong>A2, exposure, planning estimate MVR 55m p.a.</strong> Step one, base: 2024 opex MVR 935.3m (p.34) × 20–25% dollar-linked = MVR 187–234m. Step two, two bases: against the peg at 44.3% = 83–104m; as incremental deterioration against 2024 realised rates of ~MVR 18 (a 23.5% uplift to today's parallel rate) = 44–55m. Step three, the choice: 55m is the ceiling of the conservative realised-rate base, not a midpoint. Anything above 55 needs weight on the peg base (overstates for a company that has not transacted at the peg for years); anything below ignores that rates kept deteriorating since 2024. Averaging the two bases gives 71.5m, so adopting 55 deliberately leaves about a quarter of the arguable exposure out of the case. Full derivation in Appendix B.</p>
+      <p><strong>A3, benefits 25–40m at maturity.</strong> A capture band on A2. Floor: 45% of 55 = 24.75 → 25. Ceiling: ~73% capture with all four objectives delivered, 0.73 × 55 ≈ 40; never 100%, because the national scarcity and the government's rufiyaa contracts stay outside reach. Bottom-up cross-check: procurement anchored to MWSC's own 5% savings goal on the dollar-linked base, 5% × 187–234m = MVR 9–12m; the rest is premium avoided on dollar income and margins protected by FX clauses.</p>
+      <h4>Why "planning estimate", not "central"</h4>
+      <p>Earlier drafts called 55 central; against the arithmetic that word fails — the midpoint of the two bases is 71.5, and 55 is the centre of nothing computable. The final wording says what is true: 55 is the ceiling of the conservative realised-rate base, 23% below the blended midpoint. That gives the strongest line in the financial defence: had the two bases simply been averaged the model would run on 71.5m; it runs on 55, so the NPV of 33.4m already excludes roughly a quarter of the defensible exposure — and the case still breaks even at 17% of it.</p>
+      <h4>Alternatives rejected</h4>
+      <p>Published segment data: does not exist, MWSC does not disclose cost by currency. Commissioning a study first: delays action and duplicates the project's own first deliverable. Peg base alone: overstates; realised base alone: understates; presenting both and choosing conservatively is the defensible middle.</p>
+      <div class="qa"><div class="q">Q: Your whole financial case rests on an assumed 20–25%. How confident are you?</div><div class="a">A: It is the softest input in the document and I say so in three places. That is exactly why the exposure register is the first deliverable: it replaces the assumption with measured values, and Gate 2 re-tests the business case on real data at month twelve. I am not asking the board to trust the estimate; I am asking them to fund the instrument that removes it.</div></div>
+      <div class="qa"><div class="q">Q: You call 55 a planning estimate. Is it not just the top of your lower range? Why not the midpoint, 71.5?</div><div class="a">A: Deliberately the top of the lower range. The realised base is the honest measurement method, because it only counts deterioration beyond what MWSC actually paid; its ceiling is the highest figure the cautious method supports. The midpoint of both bases would be 71.5, and choosing 55 instead leaves about a quarter of the arguable exposure out of the case on purpose. The model then breaks even at 17% of even that reduced figure.</div></div>
+      <div class="qa"><div class="q">Q: Where does 40–70 in the text come from if A2 says 55?</div><div class="a">A: 40–70 is the working range across both bases rounded for prose; 55 is the modelling figure. Range for honesty, point for arithmetic.</div></div>
+      <div class="qa"><div class="q">Q: Why is the planning band only 22.00–22.50 when you stress-test ±10%?</div><div class="a">A: Two instruments, two jobs. The band is what budgets and costings use — the observed rate plus one month of this year's average drift, reviewed quarterly. The ten per cent is how far the model was pushed to prove the recommendation survives. A narrow band with a review cycle is operational discipline; the wide range is analytical honesty. One number cannot do both jobs.</div></div>
+      <div class="qa"><div class="q">Q: How did you get benefits of 25–40 million at maturity?</div><div class="a">A: It is a capture band on the 55 million exposure. The floor is what Year 3 already assumes, 45%, which is 25. The ceiling is about 73% capture with everything delivered, roughly 40, and it is never 100% because the national scarcity and the government's rufiyaa book stay outside reach. The one component with a public anchor is procurement: MWSC's own five per cent savings goal gives 9 to 12 million of it. Appendix B shows each step.</div></div>
+
+      <h2>3.1 Scope &amp; Objectives (Tables 2 &amp; 3)</h2>
+      <h4>Why a scope statement table</h4>
+      <p>It is the standard PM artefact; the brief's definition checklist (objectives, deliverables, boundaries, constraints, assumptions) can be verified at a glance; and the acceptance-criteria row formally separates "delivered" from "successful," which is the distinction the stage gates run on.</p>
+      <h4>Element-by-element rationale</h4>
+      <ul>
+        <li><strong>Goal:</strong> "net" exposure because dollar revenue offsets spending; 0.29% of revenue is the proportionality argument; no new permanent staff kills the SOE headcount objection and keeps recurring cost at 1.2m.</li>
+        <li><strong>Deliverables:</strong> register/dashboard fixes measurement (kills A2 softness); billing framework + USD account + buffer is the revenue-side machinery and R2's mitigation; planning-rate directive kills cause 2; clause library kills cause 3 and is reusable infrastructure.</li>
+        <li><strong>Acceptance criteria:</strong> binary and verifiable — dashboard live at 100% coverage; buffer policy EXCO-approved; directive issued; library in 100% of new tenders. Deliberately "issued" not "complied with": acceptance tests existence, objectives test effect.</li>
+        <li><strong>Boundaries:</strong> in scope is enterprise-wide because the fishbone shows fragmentation across divisions; each out-of-scope item has its own reason — the peg (feasibility), speculative hedging (prudence; the buffer is protective inventory, not a position), tariffs (ethics), capital delivery (focus).</li>
+        <li><strong>Constraints vs dependencies:</strong> constraints are walls you design around (rationed USD, MVR government contracts, the cap, SOE approvals); dependencies are supports others must provide (analytics, procurement digitalisation, Legal, banks) — they reappear as logframe assumptions. The assumptions row restates A1 correctly (procurement rate 22.25 in band, not "peg holds") and carries A2's self-correction clause.</li>
+      </ul>
+      <h4>Table 3 SMART — why these four</h4>
+      <p>They are MWSC's own Business Plan KPIs adopted, not invented: O1 register/dashboard + 20% USD reserve (Goal 1.5.10), O2 USD billing 50% of resorts / 20% of project revenue (Goal 2.3.4), O3 procurement down 10–15% volume-adjusted, O4 100% legal review with FX clauses (Goal 3.3.2). Volume-adjusted in O3 matters: it prevents claiming savings that are really just lower activity.</p>
+      <div class="qa"><div class="q">Q: Difference between your acceptance criteria and your objectives?</div><div class="a">A: Acceptance confirms the deliverable exists and is adopted; objectives confirm the business changed. You can pass acceptance and miss the objective. Gate 2 exists precisely to test the second after the first.</div></div>
+      <div class="qa"><div class="q">Q: Why is there no headcount in a project this size?</div><div class="a">A: Deliberate. It is a governance and behaviour project delivered through existing divisions with part-time champions. That keeps recurring cost to 1.2 million a year and means the capability lives in the line, not in a project team that disbands.</div></div>
+      <div class="qa"><div class="q">Q: Why only 50% of resorts, why not all?</div><div class="a">A: New contracts only, by design, to avoid repudiating existing agreements, and because resorts hold bargaining power. Fifty per cent by June 2027 with the FX-indexed rufiyaa fallback (R3) is ambitious but honest.</div></div>
+
+      <h2>3.2 Key Issues Analysis (RCA, Fishbone, Gap)</h2>
+      <h4>Three tools, divided work</h4>
+      <p>RCA explains why the exposure persists; the fishbone structures and weights the causes and shows five of six categories are internal, therefore actionable; the gap analysis states what must exist to close each one, which becomes the scope the options must deliver. Triangulation, not repetition: each tool answers a different question.</p>
+      <h4>Why this cause ranking</h4>
+      <p>Dollar revenue first because it is the natural hedge: every dollar earned shrinks the net exposure the other three causes each enlarge. Treasury second because planning at 15.42 while transacting near 22 poisons every budget. Contracts third because fixed-price MVR bids absorb unpriced risk. Ownership fourth but foundational — it is why 2 and 3 persist. The Argyris move: fixing processes without fixing ownership is single-loop; targeting the governing assumption (who owns FX risk) is double-loop (Argyris, 1977).</p>
+      <h4>The inference logic, in full</h4>
+      <p>For cause 1 there is direct evidence: the plan records resorts and international consulting as overlooked markets (MWSC, 2025a, p.7). For causes 2 and 3 no document says "we lack controls," because companies do not publish lists of missing controls. So the absence is inferred from the plan's forward goals: a 2026 goal to create dollar billing, a reserve and contract review is evidence those controls do not yet exist. The audited accounts corroborate: budgets struck at the peg and no disclosed FX buffer are consistent with absence, not refinement.</p>
+      <h4>Why custom fishbone categories, not the 6 Ms</h4>
+      <p>The 6 Ms are a manufacturing template; a currency problem has no machine or material dimension. The brief requires the diagram tailored and interpreted. The six categories used (Macroeconomic Environment, Revenue Structure, Financial and Treasury Practices, Procurement and Supply Chain, Contracts and Governance, Capability and Culture) map one-to-one onto the RCA plus the external boundary, so the two tools lock together (Ishikawa, 1986).</p>
+      <h4>Gap analysis — the design claim</h4>
+      <p>Every gap is a capability, behaviour or control, never an asset. That single observation is the thesis: the project buys nothing physical; it builds what persists. Each future-state cell also names the mechanism that closes the gap (directive, templates, account, account team, clause library, committee, KPIs), connecting diagnosis to delivery.</p>
+      <div class="qa"><div class="q">Q: A goal to create a control could mean strengthening an existing one, not building from zero.</div><div class="a">A: The plan frames these as new capabilities to establish, and the audited accounts corroborate absence: budgets at the peg rate and no disclosed buffer are consistent with nothing being there. If a partial control existed, strengthening it is still within scope; the diagnosis does not change.</div></div>
+      <div class="qa"><div class="q">Q: Why is the national shortage not in your root causes?</div><div class="a">A: It is a cause, but external. MWSC cannot fix the country's reserves, so it is treated as a planning assumption and a risk (R2), while the RCA keeps to causes the project can actually close. Diagnosing what you cannot treat is not analysis, it is commentary.</div></div>
+      <div class="qa"><div class="q">Q: Your fishbone departs from the standard categories. Why?</div><div class="a">A: The tool is designed to be adapted; the standard Ms are a factory template. I tailored the categories to this problem's causal structure and mapped them to the RCA so the tools triangulate. The brief explicitly requires a tailored, interpreted diagram.</div></div>
+
+      <h2>3.3 Stakeholder Analysis (Figure 3, Table 5)</h2>
+      <h4>Why salience on top of power–interest</h4>
+      <p>Power–interest alone would file the monetary authority as medium-interest and forget it; salience captures that its claim is urgent and legitimate, because it controls the dollars the buffer needs. The Mitchell test (power, legitimacy, urgency) catches actors the 2×2 underweights.</p>
+      <h4>Why every quadrant is populated, and by whom</h4>
+      <p>Manage closely: Board/MD, CFO, Finance Ministry/PCB, client ministry, monetary authority and banks. Keep informed: resorts/B2B, internal divisions. Keep satisfied: Auditor General/AGO, because the audited accounts underpin the evidence base and audit findings can validate or discredit reported benefits — engagement is a full audit trail and Internal Audit verification before gates. Monitor: domestic customers/public, little formal power but they anchor the ethical boundary; the engagement action is the commitment itself, no change to household billing. An empty half-grid invites the question "did you look?"; this composition answers it.</p>
+      <h4>Why evidenced/inferred flags</h4>
+      <p>Positions like the Board's support (sponsoring office changed mid-2026) and the AGO's independence (they flagged the Key Audit Matter) are evidenced. Positions like ministry conditionality or resort resistance are inferences, marked (I) and re-assessed at each gate. The same honesty device as A1–A3: say what you know versus what you assume.</p>
+      <div class="qa"><div class="q">Q: Several positions are inferred. How confident are you?</div><div class="a">A: The table says exactly which ones, and the design assumes I might be wrong: positions are re-assessed at each gate, and the riskiest inference, resort resistance, has a priced fallback in R3 — FX-indexed rufiyaa pricing if uptake is under 50%.</div></div>
+      <div class="qa"><div class="q">Q: Why is the Auditor General only keep-satisfied when your evidence depends on them?</div><div class="a">A: High power, low day-to-day interest in this project: they audit annually, they do not manage change. Keep satisfied is precisely the right posture: full transparency, Internal Audit verifying benefits before gates, nothing that surprises them at year end.</div></div>
+      <div class="qa"><div class="q">Q: Is dollar billing ethical for an essential service?</div><div class="a">A: For resorts and commercial clients who earn in dollars, yes; it prices reality. The ethical line is households, which is why tariffs are excluded from scope and domestic billing does not change. The stakeholder table carries that commitment in writing.</div></div>
+
+      <h2>4.1 Options &amp; Strategies (Table 6)</h2>
+      <h4>Why a do-nothing baseline</h4>
+      <p>The brief mandates a do-minimum or baseline so the value of intervening is tested, not assumed. Option A also does real analytical work: it prices inaction (the A2 exposure) and exposes the trap that doing nothing looks safe while being the most expensive choice over time.</p>
+      <h4>Why these weights</h4>
+      <p>Strategic fit and benefits carry 20 each because the project exists to deliver the plan's top challenge and pay for itself. Feasibility and cost at 15 reflect SOE budget discipline. Declaring weights before scoring is the anti-rigging move; the sensitivity test then proves the ranking survives even hostile weights.</p>
+      <h4>How the scores work</h4>
+      <p>Option A scores 5 on cost and feasibility (doing little is easy) and 1 on fit, benefits, risk and sustainability (it achieves nothing); weighted 2.45. Option B is mid-table 3s and 4s, cheap and quick but capped; 3.25. Option C: 5 on fit, benefits, risk reduction, sustainability, 4 feasibility, 3 cost and time; 4.30. The pattern answer for any single cell: the score follows from how many root causes the option touches.</p>
+      <h4>Funding realism</h4>
+      <p>MWSC raised MVR 111.15 million through a private bond at a fixed 7.5% in 2025 (MWSC/AGO, 2025, p.39). If the company can raise 111 million on the market, it can fund 4.5 million for the programme that protects the currency those bondholders are repaid in.</p>
+      <h4>Alternatives rejected as options</h4>
+      <p>Full hedging strategy: excluded from scope on prudence grounds, so it cannot be an option. Tariff-led recovery: excluded on ethics. A capital project (e.g. solar to cut fuel imports): energy savings appear as a workstream inside C, but a capital-led option would answer a different question at a different price.</p>
+      <div class="qa"><div class="q">Q: Are A, B and C genuinely distinct, or is B just C minus some scope?</div><div class="a">A: Distinct in kind, not just size. A changes nothing. B changes treasury behaviour only, all income stays in rufiyaa. C changes the revenue model itself. The dividing line is whether the root cause — no dollar income — is addressed; only C crosses it.</div></div>
+      <div class="qa"><div class="q">Q: Who scored the matrix and how do I know it is not rigged?</div><div class="a">A: Weights were fixed before scoring and are justified criterion by criterion. Then I attacked my own weighting: doubling cost to 30% and cutting strategic fit to 5% still leaves C first at 4.00 against 3.40 and 3.05. The ranking is not an artefact of the weights.</div></div>
+      <div class="qa"><div class="q">Q: Why is Option C only 3 on cost when 4.5m is trivial against the exposure?</div><div class="a">A: The criterion scores absolute outlay against alternatives, and C is triple B's cost, so B outranks it there. Value for money is captured in the benefits criterion and the NPV, not double-counted in cost.</div></div>
+
+      <h2>4.2 Financial Appraisal &amp; Sensitivity (Figure 4)</h2>
+      <h4>How the model computes, line by line</h4>
+      <p>Year 1: benefit 8.25 (15% of 55), cost 5.70 (4.5+1.2), net 2.55, DF 0.8929, PV 2.28. Year 2: 19.25 / 1.20 / 18.05 / 0.7972 / 14.39. Year 3: 24.75 / 1.20 / 23.55 / 0.7118 / 16.76. NPV 33.43; PV benefits 40.33, PV costs 6.90, BCR 5.84; break-even = 6.90/40.33 = 17.1%.</p>
+      <h4>Why 15/35/45 as the ramp</h4>
+      <p>Year 1 is mostly build (register, account, directive), so benefits are small; Year 2 the billing and procurement changes bite; Year 3 approaches but does not reach maturity. Never modelling full capture is itself conservatism.</p>
+      <h4>Why 12% discount, and no IRR</h4>
+      <p>12% is a deliberately high hurdle for a rufiyaa cash flow, absorbing SOE risk and estimate softness; a lower rate would only raise the NPV. No IRR because at this cost scale it computes to an absurd percentage implying precision the estimates do not have — the Green Book's position is that NPV is the decision metric and IRR can mislead exactly here (HM Treasury, 2022). Quoting a 300% IRR would damage credibility, not build it.</p>
+      <h4>How the A1 rate test maps onto Figure 4</h4>
+      <p>A 10% rate fall (to 20.03) cuts the realised premium from 23.5% to 11.3%, roughly halving the modelled exposure — the same as about 48% realisation on the chart: NPV near 12 million, still almost three times above break-even. A 10% rise (to 24.48) lifts exposure by about half. Every input error, rate included, expresses itself on the realisation axis, which is why that is the axis Figure 4 sweeps.</p>
+      <h4>Why Gate 2 sits at 35%</h4>
+      <p>Above the 17% break-even with buffer, and equal to the Year 2 ramp assumption, so the gate tests the model against its own milestone using its own arithmetic. If realisation is under 35% at month twelve, de-scope to Option B, which is already priced. The continuation decision and the financial model are the same test.</p>
+      <div class="qa"><div class="q">Q: Only three years. Why not five?</div><div class="a">A: Three years is the honest horizon for estimate quality, and the case already clears at three; extending the tail would only inflate an NPV that does not need inflating. The capabilities persist beyond year three, which is upside, not baseline.</div></div>
+      <div class="qa"><div class="q">Q: What single number would kill this project?</div><div class="a">A: Realisation below 17% of estimated benefits, sustained. That is the break-even, it is printed on Figure 4, and Gate 2 is set above it precisely so the project cannot drift past its own kill-line unexamined.</div></div>
+
+      <h2>4.3 Recommendation</h2>
+      <h4>Why name trade-offs and a limitation inside the recommendation</h4>
+      <p>The rubric's exemplary band demands trade-offs, uncertainties and limitations explained, not hidden. A recommendation that admits its weakest point and shows the mechanism that manages it (gates, fallback) reads as judgement; one that claims certainty reads as salesmanship. Option C is recommended, Option B retained as the priced fallback; the accepted trade-off is workload in a crowded change year, managed through existing KPIs; the rejected trade-off is Option A's apparent safety, its losses hiding as gradual currency erosion.</p>
+      <h4>Why Cynefin here</h4>
+      <p>Snowden and Boone's point is that in complex domains you probe, sense, respond rather than plan-then-execute. That is the intellectual justification for gates and re-baselining rather than a fixed three-year commitment. One sentence, load-bearing.</p>
+      <div class="qa"><div class="q">Q: If funding is halved mid-year, what survives?</div><div class="a">A: Option B is the priced answer: the directive, consolidated imports and the buffer, about 1.5 million. That is also exactly the R6 trigger response, so the de-scope path is designed, not improvised.</div></div>
+
+      <h2>4.4 Logframe (Figure 5, Table 7)</h2>
+      <h4>Why impact is FX loss avoided, not profit</h4>
+      <p>The project does not control profit; demand, tariffs and weather do. Claiming profit would break the causal chain the LFA exists to protect. Claiming only the FX slice keeps every link defensible.</p>
+      <h4>Why assumptions sit at specific levels</h4>
+      <p>An assumption belongs at the level whose achievement it threatens: peg stability threatens the impact, not the activities; SAP data quality threatens outputs. Placing them correctly is what makes the logframe a risk instrument rather than a form. Gate 1 (month 6) tests tools are live; Gate 2 (month 12) tests 35% realisation.</p>
+      <div class="qa"><div class="q">Q: Walk me up the chain from one activity to impact.</div><div class="a">A: Take the clause library. Activity: Legal drafts and issues it. Output: 100% of new tenders carry FX clauses, verified in tender audits. Outcome: new project revenue stops silently absorbing currency movements. Impact: measured FX loss against the do-nothing baseline falls. Each link has an indicator, a verification source and an owner in the table.</div></div>
+
+      <h2>5. Risk Management Plan (Table 8)</h2>
+      <h4>The register, one line each with its logic</h4>
+      <ul>
+        <li><strong>R1 Strategic 15:</strong> thin reserves → peg adjusted → exposure repriced. Banded rate, quarterly review; trigger: announcement → re-baseline in 30 days. Top because it invalidates the arithmetic itself.</li>
+        <li><strong>R2 Financial 15:</strong> FX rationing → dollars unavailable → production threatened. Multi-bank, safety stock; trigger: refusal → draw buffer, escalate. The water-security risk.</li>
+        <li><strong>R3 Stakeholder 12:</strong> resorts refuse USD billing → outcome missed. New contracts only; trigger &lt;50% uptake Q1 2027 → FX-indexed rufiyaa pricing. Keeps the economics while conceding the currency.</li>
+        <li><strong>R4 Governance 12:</strong> clauses rejected or sponsorship lapses → margins exposed. FIDIC precedent, re-secure sponsorship; trigger: rejection → ring-fence funds.</li>
+        <li><strong>R5 Delivery 9:</strong> change fatigue → benefits slip past Gate 2. Embed in KPIs; trigger: two missed milestones → re-phase.</li>
+        <li><strong>R6 Financial 8:</strong> estimated baselines → benefits overstated → case weakens. Conservative baselines, Internal Audit; trigger: &lt;35% at Gate 2 → de-scope to B. The hinge risk: its trigger is the gate and its response the already-priced fallback, so governance and finance meet in one row.</li>
+        <li><strong>R7 Operational 8:</strong> consolidated imports → mis-forecast → spares stock-out. Criticality classes, min-max; trigger: A-class stock-out → air-freight.</li>
+        <li><strong>R8 Sustainability 6:</strong> discipline lapses after close → benefits erode. Corporate register, divisional KPIs; trigger: two quarters unreviewed → reinstate committee.</li>
+      </ul>
+      <h4>Why cause–event–effect phrasing</h4>
+      <p>It forces each risk to be a causal claim you can act on at three points: remove the cause, detect the event, limit the effect. "Currency risk" as a label is unmanageable; "thin reserves lead to peg adjustment lead to repricing" is. Programme-level governance (Barclay and Osei-Bryson, 2015); method ISO 31000 (ISO, 2018).</p>
+      <div class="qa"><div class="q">Q: Which risk worries you most?</div><div class="a">A: R2, because it is the one that touches water supply, and its levers are partly outside MWSC. That is why the buffer exists, why banking is multi-bank, and why the escalation is framed as water security, which changes how the authorities hear it.</div></div>
+      <div class="qa"><div class="q">Q: Why does nothing in the register overturn your recommendation?</div><div class="a">A: Only R1 to R4 could, and each carries a fallback preserving the core logic: re-baseline, buffer, indexed pricing, ring-fenced funds. The register was built to test the recommendation, and the recommendation survived it; that is what the caption states.</div></div>
+
+      <h2>6. Conclusion</h2>
+      <p>Causes are internal and all addressed; the appraisal outperforms both alternatives on every weighting tested; the logframe and register pre-state how delivery is measured and what happens on failure; approval requested — a gated 0.3% of revenue against an exposure in the tens of millions. It closes on the asymmetry, and that final sentence is the whole case compressed: small, controlled, reversible spend against large, unmanaged, compounding loss. If you get one sentence in the defence, it is this one.</p>
+
+      <hr class="hr">
+      <h2>Cross-Cutting Defence Preparation</h2>
+      <h4>The five opening questions, with your first lines</h4>
+      <ul>
+        <li><strong>Summarise your proposal in a minute.</strong> Use the intro one-liner plus the asymmetry close.</li>
+        <li><strong>What is your weakest number?</strong> The 20–25% dollar-linked share; answer with register-replaces-it, Gate-2-retests-it, then land the 71.5 beat: averaging my bases would give 71.5m, I modelled 55, so a quarter of the arguable benefit is already left out.</li>
+        <li><strong>Why now?</strong> Rate at a record 22.25, margins already down 7.5 points in six months, and the plan's own goals waiting to be operationalised.</li>
+        <li><strong>What would make you stop?</strong> Under 35% realisation at Gate 2: de-scope to B. Named, priced, pre-agreed.</li>
+        <li><strong>What did you learn?</strong> The difference between evidencing a presence and evidencing an absence (the causes 2 and 3 inference), and that conservatism is a design choice, not a mood.</li>
+      </ul>
+      <h4>Numbers to hold in memory</h4>
+      <p>22.25 and 44.3% (Adhadhu, 11 Aug 2026). 15.42 peg. Band 22.00–22.50 = rate ± one month's drift (0.25/month in 2026). 935.3m opex 2024 (p.34). 187–234 dollar-linked base. 83–104 vs peg; 44–55 vs realised (+23.5%); 55 = ceiling of the realised base; blended midpoint 71.5, so a quarter left out. Stress ±10%: 20.03 → ~48% realisation, NPV ~12m; 24.48 lifts the case by half. A3: floor 25 = 45% of 55; ceiling 40 ≈ 73%; procurement 9–12m from the 5% goal. 4.5m + 1.2m/yr; 12%; NPV 33.43; BCR 5.84; break-even 17.1%; ramp 15/35/45; Gate 2 = 35%. Matrix 2.45 / 3.25 / 4.30; stress 4.00 / 3.40 / 3.05. Bond 111.15m at 7.5% (p.39). Cash 50.2 vs receivables 877.8; KAM 192.1 (p.40). FY2025: 1,374m and 146m. H1 2026: 749.3 vs 800.8, gap 1.9% to 10.9%. Margin 57.3 to 49.8.</p>
+      <h4>Framework one-liners</h4>
+      <p>Freeman: who matters and how much. Mitchell, Agle &amp; Wood: urgency and legitimacy catch what the 2×2 misses. Ishikawa: structure causes so none are missed; categories adapted to the problem. Argyris: fix the governing assumption, not just the process. Barney: value from capabilities that are valuable, rare, inimitable. Callahan &amp; Brooks: projects must serve the strategy mix, here its financial element. Schmidt: four questions every plan must answer. Barclay &amp; Osei-Bryson: programme-level risk for developing-economy strategic projects. Snowden &amp; Boone: complex domains need probe-sense-respond, hence gates. HM Treasury: NPV over IRR where IRR misleads. ISO 31000: the risk method standard.</p>
+      <h4>Housekeeping before submission</h4>
+      <p>Verify 186.9m and the share count against the source PDFs. Add the AI-use declaration in Villa College's format if policy requires. Confirm the presentation/defence mark split with Mr. Haleem (the brief's prose and rubric differ: 10/20 versus 5/25).</p>
+    </div>
+  </div>
+
+  <!-- PRESENTATION -->
+  <div style="display:{{ dispPres }}">
+    <div style="max-width:1200px;margin:0 auto;padding:32px 32px 48px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+        <div>
+          <div class="card-kicker">Defence deck · 8 slides · ~5 minutes</div>
+          <h2 style="font-size:26px;margin:4px 0 0">Project Fen Rakkaa — the presentation</h2>
+          <p class="text-muted" style="font-size:14px;margin:6px 0 0;max-width:640px">Use the arrow keys or on-screen controls to present. Every slide carries a speaker note (press <strong>S</strong> or open the notes panel). Export to PDF or PowerPoint from the deck's own toolbar, or from the Downloads tab.</p>
+        </div>
+        <div style="display:flex;gap:8px">
+          <a class="btn btn-secondary" href="presentation.html" target="_blank" rel="noopener">Open full screen ↗</a>
+        </div>
+      </div>
+      <div style="border:2px solid var(--color-divider);background:#000;aspect-ratio:16/9;width:100%">
+        <iframe src="presentation.html" title="Fen Rakkaa Presentation" style="width:100%;height:100%;border:0;display:block"></iframe>
+      </div>
+      <div style="margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--color-divider)">
+        <div style="background:var(--color-bg);padding:14px 16px"><div class="text-muted" style="font-size:12px">Slides 1–2</div><div style="font-size:14px;font-weight:600">Cover · The problem</div></div>
+        <div style="background:var(--color-bg);padding:14px 16px"><div class="text-muted" style="font-size:12px">Slides 3–4</div><div style="font-size:14px;font-weight:600">Evidence · Options</div></div>
+        <div style="background:var(--color-bg);padding:14px 16px"><div class="text-muted" style="font-size:12px">Slides 5–6</div><div style="font-size:14px;font-weight:600">Value · Delivery</div></div>
+        <div style="background:var(--color-bg);padding:14px 16px"><div class="text-muted" style="font-size:12px">Slides 7–8</div><div style="font-size:14px;font-weight:600">Risks · The ask</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOWNLOADS -->
+  <div style="display:{{ dispDownloads }}">
+    <div style="max-width:860px;margin:0 auto;padding:48px 32px 64px">
+      <div class="card-kicker">Take everything with you</div>
+      <h2 style="font-size:30px;margin:4px 0 8px">Downloads</h2>
+      <p class="text-muted" style="font-size:14px;max-width:640px;margin:0 0 28px">The submitted deliverables and this portal, ready to save or print. Use <strong>Print → Save as PDF</strong> where a browser print is offered; the source files download directly.</p>
+      <div style="display:flex;flex-direction:column;gap:2px;background:var(--color-divider)">
+        <a href="downloads/Fen Rakkaa Proposal (FINAL).pdf" download style="background:var(--color-bg);padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;text-decoration:none;color:inherit">
+          <div><div style="font-family:var(--font-heading);font-weight:800;font-size:17px">Strategic Project Proposal (FINAL)</div><div class="text-muted" style="font-size:13px">The submitted 29-page PDF · 4,416 words</div></div>
+          <span class="btn btn-primary" style="pointer-events:none">Download PDF</span>
+        </a>
+        <a href="downloads/Fen Rakkaa Defence Presentation.pptx" download style="background:var(--color-bg);padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;text-decoration:none;color:inherit">
+          <div><div style="font-family:var(--font-heading);font-weight:800;font-size:17px">Defence Presentation</div><div class="text-muted" style="font-size:13px">8-slide PowerPoint deck with speaker notes</div></div>
+          <span class="btn btn-primary" style="pointer-events:none">Download PPTX</span>
+        </a>
+        <a href="downloads/Defence Companion.docx" download style="background:var(--color-bg);padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;text-decoration:none;color:inherit">
+          <div><div style="font-family:var(--font-heading);font-weight:800;font-size:17px">Defence Companion (v15 final)</div><div class="text-muted" style="font-size:13px">Section-by-section prep notes · Word document</div></div>
+          <span class="btn btn-primary" style="pointer-events:none">Download DOCX</span>
+        </a>
+        <div style="background:var(--color-bg);padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px">
+          <div><div style="font-family:var(--font-heading);font-weight:800;font-size:17px">Live presentation deck</div><div class="text-muted" style="font-size:13px">Open, then use the deck toolbar to print to PDF (one page per slide)</div></div>
+          <a class="btn btn-secondary" href="presentation.html" target="_blank" rel="noopener">Open deck ↗</a>
+        </div>
+      </div>
+      <p class="text-muted" style="font-size:12px;margin-top:16px">To save this whole portal (proposal, companion, deck and AI examiner) as one file, ask and it can be bundled into a single offline HTML page.</p>
+    </div>
+  </div>
+
+  <!-- CHAT -->
+  <div style="display:{{ dispChat }}">
+    <div style="max-width:820px;margin:0 auto;padding:24px 32px 32px;display:flex;flex-direction:column;height:calc(100vh - 61px)">
+      <div style="flex:none;padding-bottom:16px;border-bottom:2px solid var(--color-divider)">
+        <h2 style="font-size:24px;margin:0 0 4px">AI Defence Examiner</h2>
+        <p class="text-muted" style="font-size:14px;margin:0">Grounded in the proposal, the defence companion and the presentation. Ask a panel question, probe a number, stress-test an answer, or request a one-minute summary.</p>
+      </div>
+
+      <div style="flex:1;overflow-y:auto;padding:20px 2px;display:flex;flex-direction:column;gap:14px">
+        <sc-if value="{{ hasMessages }}" hint-placeholder-val="{{ false }}">
+          <sc-for list="{{ messages }}" as="m" hint-placeholder-count="0">
+            <div style="{{ m.rowStyle }}">
+              <div style="{{ m.bubbleStyle }}">{{ m.content }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;justify-content:flex-start">
+            <div style="padding:12px 16px;background:var(--color-surface);border:1px solid var(--color-divider);display:flex;gap:5px">
+              <span style="width:7px;height:7px;background:var(--color-accent);animation:blink 1.4s infinite"></span>
+              <span style="width:7px;height:7px;background:var(--color-accent);animation:blink 1.4s infinite .2s"></span>
+              <span style="width:7px;height:7px;background:var(--color-accent);animation:blink 1.4s infinite .4s"></span>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ showEmpty }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <p class="text-muted" style="font-size:13px;margin-bottom:12px">Try one of these:</p>
+            <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start">
+              <button class="chip" data-q="Summarise the whole proposal in one minute." onClick="{{ askQ }}" style="text-align:left;font:inherit;font-size:14px;padding:10px 14px;background:var(--color-surface);border:1px solid var(--color-divider);cursor:pointer">Summarise the whole proposal in one minute.</button>
+              <button class="chip" data-q="What is your weakest number, and how do you defend it?" onClick="{{ askQ }}" style="text-align:left;font:inherit;font-size:14px;padding:10px 14px;background:var(--color-surface);border:1px solid var(--color-divider);cursor:pointer">What is your weakest number, and how do you defend it?</button>
+              <button class="chip" data-q="Why is 55 adopted as the planning estimate when averaging your two bases gives 71.5?" onClick="{{ askQ }}" style="text-align:left;font:inherit;font-size:14px;padding:10px 14px;background:var(--color-surface);border:1px solid var(--color-divider);cursor:pointer">Why is 55 adopted when averaging your bases gives 71.5?</button>
+              <button class="chip" data-q="What would make you stop this project?" onClick="{{ askQ }}" style="text-align:left;font:inherit;font-size:14px;padding:10px 14px;background:var(--color-surface);border:1px solid var(--color-divider);cursor:pointer">What would make you stop this project?</button>
+              <button class="chip" data-q="Are options A, B and C genuinely distinct, or is B just C minus scope?" onClick="{{ askQ }}" style="text-align:left;font:inherit;font-size:14px;padding:10px 14px;background:var(--color-surface);border:1px solid var(--color-divider);cursor:pointer">Are options A, B and C genuinely distinct?</button>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="flex:none;display:flex;gap:8px;padding-top:12px;border-top:2px solid var(--color-divider)">
+        <textarea class="input" placeholder="Ask a defence question…" value="{{ input }}" onInput="{{ onInput }}" onKeyDown="{{ onKey }}" style="min-height:44px;max-height:120px;resize:none"></textarea>
+        <button class="btn btn-primary" onClick="{{ send }}" style="align-self:stretch;padding-inline:22px">Send</button>
+      </div>
+    </div>
+  </div>
+  <!-- Hidden knowledge base: presentation slides + speaker notes (read by the AI) -->
+  <div id="presentation-kb" style="display:none" aria-hidden="true">
+SLIDE 1 — COVER. MWSC Strategic Project Development Proposal. Project Fen Rakkaa: closing the gap between rufiyaa income and dollar spending. Decision requested: approve a gated MVR 4.5m project against exposure in the tens of millions. Hussain Shaany S2610358, PTMT9002, 15 August 2026. NOTE: I am asking the panel to approve Project Fen Rakkaa, a twelve-month MVR 4.5m project to close the gap between the currency MWSC earns in and spends in. Five minutes: problem, evidence, options, value, risks, then the ask.
+SLIDE 2 — THE PROBLEM: MWSC earns in MVR and spends in USD. BP26 ranks the USD exchange rate crisis as the top corporate challenge. 22.25 MVR per USD parallel rate (11 Aug 2026), official peg 15.42, premium 44%. Gross reserves $638m (Jul 2026), fell from $1.33bn (Mar) to $718m (Apr, 1.4 months import cover) after the $500m sukuk. ~0% of MWSC revenue in USD; membranes, pumps, chemicals, pipes, meters all bought in dollars. Structural not temporary. NOTE: the premium has widened steadily for two years; every dollar of imports costs 44% more rufiyaa than the budget rate.
+SLIDE 3 — THE EVIDENCE: the mismatch is already costing MWSC. FY2025 revenue MVR 1.37bn (down 13%, 62% of goal); FY2025 PAT MVR 146m (down ~a third); H1 2026 revenue gap 6.4% below budget, widening 1.9%→10.9%; cash MVR 50.2m vs receivables MVR 877.8m, MVR 192.1m impairment (Key Audit Matter). Unmanaged FX exposure MVR 40–70m/yr; A2 planning estimate MVR 55m adopted. Four internal root causes: 1 no dollar revenue, 2 no treasury controls, 3 no FX clauses, 4 no owner. NOTE: doing nothing is the expensive option; the exposure register is deliverable one, replacing the estimate with measured values.
+SLIDE 4 — THREE OPTIONS appraised before scoring. A Do Nothing (baseline, score 2.45): no cost, leaves MVR 40–70m exposed, fails every objective. B Treasury Fix (do-minimum, 3.25): MVR 1.5m, planning rate/buffer/bulk orders, revenue mismatch unresolved. C Fen Rakkaa (integrated, recommended, 4.30): MVR 4.5m, 12 months, 2 gates, six workstreams (revenue, treasury, procurement, contracts, governance, energy), only option resolving every root cause. Sensitivity: doubling cost weight to 30% and cutting strategic fit to 5% still ranks C first (4.00 vs 3.40, 3.05). B retained as priced fallback.
+SLIDE 5 — THE VALUE: pays back in Year 1, robust to failure. 3-year DCF at 12%; benefits ramp 15/35/45% of MVR 55m. NPV MVR 33.4m, BCR 5.8, payback Year 1, 17% realisation to break even. Honest: benefits rest on assumed dollar-linked cost share not published segment data; exposure register replaces the estimate; positive at 40% realisation even with running costs over by two-thirds; no IRR quoted (false precision at this scale).
+SLIDE 6 — DELIVERY: twelve months, two gates, a priced fallback. Q4 2026 Mobilise (steering committee, champions, USD account); Q1 2027 Build (register, dashboard, clause library); Q2 2027 Scale (resort outreach, USD billing, bulk import plan); Q3 2027 Embed (buffer policy, divisional KPIs, audit-verified benefits). Gate 1 (M6): governance live? Gate 2 (M12): realisation ≥35%, else de-scope to Option B. Owners: USD billing ≥50% resorts & ≥20% project revenue by Q2 2027 (GM BD); procurement −10–15% by Sep 2027 (Procurement); USD reserve ≥20% of MVR 30m by Mar 2027 (CFO); 100% FX contracts reviewed from Q4 2026 (Legal).
+SLIDE 7 — PRINCIPAL RISKS owned, triggered, priced (12+ escalates to EXCO). Peg adjustment re-prices exposure (15, CFO, planning band 22.00–22.50, re-baseline within 30 days, residual 8). Banks ration USD, imports threatened (15, CFO, multi-bank + buffer + escalate, residual 8). Resorts reject USD billing (12, GM BD, new contracts only, FX-indexed fallback if uptake <50% by Q1 2027, residual 6). Ministry rejects FX clauses (12, Legal/CFO, FIDIC precedent, ring-fence funds, residual 6). The two 15s are macro events the project cannot prevent — the argument for buffers, bands and fallbacks over assumed stability.
+SLIDE 8 — THE ASK: approve Option C. MVR 4.5m gated (0.3% of revenue); 12 months, two gates, fallback to Option B at MVR 1.5m; delivers three BP26 goals — USD billing (2.3.4), USD reserve (1.5.10), contract review (3.3.2). Causes are internal; C beats both alternatives and stays positive even if most benefits fail to appear; failure is defined in advance, measured at the gates, and priced. Questions welcome.
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1100,&quot;height&quot;:820},&quot;mode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Examiner (as the candidate)&quot;,&quot;options&quot;:[&quot;Examiner (as the candidate)&quot;,&quot;Tough panel (rapid fire)&quot;,&quot;Coach (feedback on my answer)&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Assistant&quot;},&quot;answerStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Exam-ready&quot;,&quot;options&quot;:[&quot;Exam-ready&quot;,&quot;Detailed&quot;,&quot;Concise&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Assistant&quot;}}">
+class Component extends DCLogic {
+  state = { tab:'overview', input:'', messages:[], loading:false };
+
+  componentDidMount(){
+    try {
+      const p = document.getElementById('proposal-doc');
+      const d = document.getElementById('defence-doc');
+      const k = document.getElementById('presentation-kb');
+      const pt = p ? p.textContent : '';
+      const dt = d ? d.textContent : '';
+      const kt = k ? k.textContent : '';
+      this.kb = ('=== STRATEGIC PROJECT PROPOSAL (Fen Rakkaa, FINAL submission) ===\n' + pt +
+                 '\n\n=== DEFENCE COMPANION (v15 final) ===\n' + dt +
+                 '\n\n=== DEFENCE PRESENTATION (8 slides + speaker notes) ===\n' + kt)
+                 .replace(/[ \t]+/g,' ').replace(/\n{3,}/g,'\n\n').trim();
+    } catch(e){ this.kb = ''; }
+  }
+
+  ask = async (q) => {
+    const question = (q || this.state.input || '').trim();
+    if (!question || this.state.loading) return;
+    const msgs = [...this.state.messages, { role:'user', content:question }];
+    this.setState({ messages: msgs, input:'', loading:true });
+    const style = this.props.answerStyle || 'Exam-ready';
+    const styleLine = style === 'Concise'
+      ? 'Length: answer in 2-4 tight sentences the candidate could say aloud.'
+      : style === 'Detailed'
+      ? 'Length: give a thorough answer covering the reasoning, the numbers and the evidence, but stay speakable.'
+      : 'Length: 3-6 sentences, the way the candidate would say it out loud in the oral defence, leading with the point.';
+    const mode = this.props.mode || 'Examiner (as the candidate)';
+    const modeLine = mode === 'Tough panel (rapid fire)'
+      ? "MODE: Act as a sceptical examination panel. First give the sharpest version of the answer the candidate should give, then add a short 'Follow-up the panel may push' line with one harder probe so he can rehearse it."
+      : mode === 'Coach (feedback on my answer)'
+      ? "MODE: Act as a defence coach. If the user pastes or attempts an answer, critique it briefly (what landed, what was weak, what number or citation to add), then give an improved model answer. If they only ask a question, give the model answer plus one coaching tip."
+      : "MODE: Answer in the first person AS THE CANDIDATE (Hussain Shaany) defending the work to the panel \u2014 direct and confident.";
+    const system =
+      "You are an elite oral-defence examiner and coach for a postgraduate strategic project proposal, 'Fen Rakkaa' (governing MWSC's US-dollar exposure), by Hussain Shaany (S2610358), defended 15 August 2026 for PTMT9002. Your single objective is to get him 200% ready for the defence. " +
+      modeLine + " " + styleLine + " " +
+      "\n\nGROUNDING RULES (important):\n" +
+      "1. The SOURCE MATERIAL below (proposal, defence companion, presentation) is the primary authority for everything about THIS project \u2014 its scope, options, numbers, assumptions A1-A3, objectives, logframe and risks R1-R8. Always defend and explain using it, and cite the specific number, table, assumption, option or risk.\n" +
+      "2. You MAY go beyond the documents to make the candidate stronger: explain project-management theory (Argyris, Ishikawa, Snowden & Boone, Barney, Freeman, Mitchell), FX/treasury concepts, SOE governance, FIDIC clauses, NPV/BCR/sensitivity method, and the Maldives macro context (the peg, MMA reserves, the sukuk). When you draw on this broader knowledge, briefly signal it (e.g. 'Beyond the proposal\u2026' or 'For context\u2026') so he knows what is documented versus general knowledge.\n" +
+      "3. CREDIBILITY CHECK \u2014 this matters: if the candidate's figure or claim in the assignment looks questionable, outdated, internally inconsistent, or a marker could challenge it, SAY SO plainly. Explain what a credible primary source would say instead and name it (e.g. MMA Monthly Statistics, World Bank Maldives Development Update, IMF Article IV, the audited MWSC annual report, the Auditor General's report). Then give him a defensible way to handle it in the room \u2014 acknowledge the limitation, cite the assumption, point to the exposure register and Gate 2. Never bluff a number.\n" +
+      "4. You cannot browse the live web, so treat any external fact as from training knowledge and tell him to verify time-sensitive figures against the primary source before the defence. Distinguish clearly between 'what your proposal says', 'what the evidence/theory says', and 'what you should double-check'.\n" +
+      "5. If something is genuinely outside everything you know, say so and suggest the closest defensible answer rather than inventing detail.\n" +
+      "\n===== SOURCE MATERIAL =====\n" + (this.kb || '(source not loaded)');
+    try {
+      const text = await window.claude.complete({
+        model: 'claude-sonnet-4-5',
+        max_tokens: 1400,
+        system,
+        messages: msgs.map(m => ({ role:m.role, content:m.content }))
+      });
+      this.setState(s => ({ messages:[...s.messages, { role:'assistant', content:text }], loading:false }));
+    } catch(e){
+      this.setState(s => ({ messages:[...s.messages, { role:'assistant', content:'Sorry — I could not reach the assistant just now. Please try again in a moment.' }], loading:false }));
+    }
+  };
+
+  tabBtn(t){
+    const active = this.state.tab === t;
+    return { padding:'18px 16px', cursor:'pointer', fontFamily:'var(--font-heading)', fontWeight:800,
+      fontSize:'14px', background:'transparent', border:'0',
+      borderBottom: active ? '2px solid var(--color-accent)' : '2px solid transparent',
+      marginBottom:'-2px', color: active ? 'var(--color-accent)' : 'var(--color-text)' };
+  }
+
+  renderVals(){
+    const t = this.state.tab;
+    const msgs = this.state.messages.map(m => ({
+      content: m.content,
+      rowStyle: { display:'flex', justifyContent: m.role==='user' ? 'flex-end' : 'flex-start' },
+      bubbleStyle: {
+        maxWidth:'84%', padding:'12px 16px', fontSize:'14px', lineHeight:1.65, whiteSpace:'pre-wrap',
+        background: m.role==='user' ? 'var(--color-accent)' : 'var(--color-surface)',
+        color: m.role==='user' ? 'var(--color-bg)' : 'var(--color-text)',
+        border: m.role==='user' ? 'none' : '1px solid var(--color-divider)'
+      }
+    }));
+    return {
+      dispOverview: t==='overview' ? 'block':'none',
+      dispProposal: t==='proposal' ? 'block':'none',
+      dispDefence:  t==='defence'  ? 'block':'none',
+      dispPres:     t==='pres'     ? 'block':'none',
+      dispDownloads:t==='downloads'? 'block':'none',
+      dispChat:     t==='chat'     ? 'block':'none',
+      ovTab: this.tabBtn('overview'), propTab: this.tabBtn('proposal'),
+      defTab: this.tabBtn('defence'), presTab: this.tabBtn('pres'),
+      chatTab: this.tabBtn('chat'), dlTab: this.tabBtn('downloads'),
+      setOverview: () => this.setState({tab:'overview'}),
+      setProposal: () => this.setState({tab:'proposal'}),
+      setDefence:  () => this.setState({tab:'defence'}),
+      setPres:     () => this.setState({tab:'pres'}),
+      setDownloads:() => this.setState({tab:'downloads'}),
+      setChat:     () => this.setState({tab:'chat'}),
+      messages: msgs,
+      hasMessages: msgs.length > 0,
+      showEmpty: msgs.length === 0 && !this.state.loading,
+      loading: this.state.loading,
+      input: this.state.input,
+      onInput: (e) => this.setState({ input: e.target.value }),
+      onKey: (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); this.ask(); } },
+      send: () => this.ask(),
+      askQ: (e) => this.ask(e.currentTarget.getAttribute('data-q'))
+    };
+  }
+}
+</script>
+</body>
+</html>
